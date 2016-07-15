@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\DepartmentModel;
-
+use Session;
+use DB;
 class DepartmentController extends Controller
 {
 	
@@ -22,7 +23,20 @@ class DepartmentController extends Controller
 	}
 	public function create()
 	{
-		return \View::make('admin/setting/department/index', compact('departments'));
+		$results = DB::table('tbl_department')->select('dept_no')->orderBy('id', 'desc')->limit(1)->get();
+		if(count($results) > 0) {
+			foreach($results as $result) {
+				if (count($result) > 0) {
+					$result = explode('-', $result->dept_no);
+					$result_count =  (int)$result[1]+1;
+
+				} else {
+					$result_count = 1;
+
+				}
+			}
+		}
+		return \View::make('admin/setting/department/index', compact('departments', 'result_count'));
 	}
 	public function store(Request $request)
 	{
@@ -44,7 +58,9 @@ class DepartmentController extends Controller
 		} else {
 			$department = $request->all();
 			DepartmentModel::create($department);
-		    return redirect('admin/setting/department');
+			
+			Session::flash('dept_mesage', 'Department successfully created');
+		    return redirect()->back();
 		}
 	}
 	public function edit($id)

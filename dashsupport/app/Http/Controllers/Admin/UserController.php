@@ -16,6 +16,7 @@ use Illuminate\Http\Response;
 use App\DepartmentList;
 use App\User;
 use Session;
+use DB;
 
 class UserController extends Controller
 {
@@ -30,7 +31,9 @@ class UserController extends Controller
 	public function create()
 	{
 		$department = DepartmentList::lists('dept_name', 'id')->all();
+
 		return \View::make('admin/setting/user/index', compact('department'));
+		
 	}
 	
 	public function store(Request $request)

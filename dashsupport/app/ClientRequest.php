@@ -19,8 +19,5 @@ class ClientRequest extends Model
 		'dept_id',
 		'description'
 	];
-	public function getDepartment()
-	{
-		return $this->belongsTo('App\DepartmentModel');
-	}
+
 }

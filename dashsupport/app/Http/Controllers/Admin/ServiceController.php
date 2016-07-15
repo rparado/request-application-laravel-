@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use App\DepartmentList;
 use App\ServiceItemModel;
-
+use DB;
+use Session;
 class ServiceController extends Controller
 {
     public function index()
@@ -21,7 +22,19 @@ class ServiceController extends Controller
 	public function create()
 	{
 		$group = DepartmentList::lists('dept_name', 'id')->all();
-		return \View::make('admin/setting/service/index', compact('group'));
+		$results = DB::table('tbl_service_item')->select('service_number')->orderBy('id', 'desc')->limit(1)->get();
+		if(count($results) > 0) {
+			foreach($results as $result) {
+				if (count($result) > 0) {
+					$result = explode('-', $result->service_number);
+					$result_count =  (int)$result[1]+1;
+				} else {
+					$result_count = 1;
+				}
+			}
+		}	
+		
+		return \View::make('admin/setting/service/index', compact('group', 'result_count'));
 	}
 	public function store(Request $request)
 	{
@@ -53,7 +66,9 @@ class ServiceController extends Controller
 		} else {
 			$service = $request->all();
 			ServiceItemModel::create($service);
-			return redirect('admin/setting/service');
+			
+			Session::flash('service_message', 'Service item successfully created');
+			return redirect()->back();
 		}
 	}
 	public function edit($id)
@@ -72,7 +87,7 @@ class ServiceController extends Controller
 	public function destroy($id)
 	{
 		ServiceItemModel::find($id)->delete();
-		return redirect('admin/setting/service/index');
+		return redirect('admin/setting/service');
 	}
 	
 	/*public function getServiceItem(Request $request)

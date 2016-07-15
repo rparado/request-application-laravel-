@@ -21,10 +21,14 @@
 				</ul>
 			</div>
 			@endif
+			@if(Session::has('service_message'))
+				<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('service_message') !!}</em>
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</div>
+			@endif
 			{!! Form::open(['url' => 'admin/setting/service', 'method' => 'post', 'class' => 'serviceform row']) !!}
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('service no', 'Service Item No') !!}
-					{!! Form::text('service_number',null, array('class' => 'form-control')) !!}
+					{!! Form::text('service_number','Ser-'.sprintf('%1$010d', $result_count), array('class' => 'form-control', 'readonly')) !!}
 				</div>
 
 				<div class="form-group col-xs-12 col-md-6">

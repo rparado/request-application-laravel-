@@ -14,9 +14,10 @@
                 <img src="/assets/images/user.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-                <span>Welcome client,</span>
+                
                 @if (Auth::check()) 
                 	<h2>{{ Auth::user()->first_name }} {{ Auth::user()->last_name}}</h2>
+                	<span class="online-ico"></span><span class="online-text">Online</span>
                 @endif
             </div>
         </div>

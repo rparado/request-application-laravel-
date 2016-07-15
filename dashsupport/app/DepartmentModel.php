@@ -13,4 +13,5 @@ class DepartmentModel extends Model
 		'dept_name',
 		'active'
 	];
+	
 }

@@ -57,11 +57,10 @@
 				"pageLength" : 5,
 				"lengthMenu" : [5, 10, 15, 20],
 				"bDestroy" : true,
-				"bSort" : true,
+				"bSort" : false,
 				//"sPaginationType" : "full_numbers",
 				"iDisplayLength" : 5,
-				"bLengthChange" : true,
-				
+				"bLengthChange" : true
 			});
 		}
 		if($('.dataTables_wrapper input[type="search"]').length > 0) {

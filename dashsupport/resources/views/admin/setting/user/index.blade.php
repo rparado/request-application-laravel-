@@ -26,7 +26,7 @@
 			{!! Form::open(['url' => 'admin/setting/user', 'method' => 'post', 'class' => 'userform row','files'=>true]) !!}
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('User Number', 'User Number') !!}
-					{!! Form::text('user_number', 'Us-'.sprintf('%1$010d', ''), array('class' => 'form-control', 'placeholder' => 'Enter User Number', 'id' => 'usernum', 'readonly')) !!}
+					{!! Form::text('user_number', 'Us-'.sprintf('%1$010d', $result_count), array('class' => 'form-control', 'placeholder' => 'Enter User Number', 'id' => 'usernum', 'readonly')) !!}
 				</div>
 				<div class="form-group col-xs-12 col-md-6" style="height: 58px">
 					{!! Form::label('Upload Photo','Upload Photo') !!}

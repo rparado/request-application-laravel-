@@ -58,7 +58,9 @@ Route::resource('admin/setting/user', 'Admin\UserController');
 Route::resource('admin/setting/department', 'Admin\DepartmentController');
 Route::resource('admin/setting/service', 'Admin\ServiceController');
 
-Route::get('client/request/index', 'Client\RequestController@getLastInsertId');
+
+Route::resource('client/dashboard', 'Client\DashboardController');
+//Route::get('client/request/index', 'Client\RequestController@getLastInsertId');
 Route::resource('client/request', 'Client\RequestController');
 
 /*================AJAX POST Controllers=============================*/

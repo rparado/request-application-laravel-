@@ -21,21 +21,40 @@ class RequestController extends Controller
 {
     public function index()
 	{
-		$requests = ClientRequest::all();
-		$departments = DepartmentModel::all();
-		return \View::make('client/request/requestlist', compact('requests', 'departments'));
+		//$departments = DepartmentModel::with('dept_name');
+		$requests = DB::table('tbl_request')
+            ->join('tbl_department', 'tbl_request.dept_id', '=', 'tbl_department.id')	
+			->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
+			->select('tbl_request.*', 'tbl_department.dept_name', 'tbl_service_item.service_item_name')
+            ->get();
+		//dd($requests);
+		return \View::make('client/request/requestlist', compact('requests'));
 	}
 	public function create()
 	{
-		$requests = ClientRequest::all();
+		
 		$service_item = [''=>''] + ServiceItemModel::lists('service_item_name', 'id')->all();
 		$department = [''=>''] + DepartmentList::lists('dept_name', 'id')->all();
-		return \View::make('client/request/index', compact('department', 'service_item', 'requests'));
+		$results = DB::table('tbl_request')->select('request_no')->orderBy('id', 'desc')->limit(1)->get();
+		if(count($results) > 0) {
+			foreach($results as $result) {
+				if (count($result) > 0) {
+					$result = explode('-', $result->request_no);
+					$result_count =  (int)$result[1]+1;
+
+				} else {
+					$result_count = 1;
+
+				}
+			}
+		}	
+		
+		return \View::make('client/request/index', compact('department', 'service_item', 'requests', 'result_count'));
 	}
 	public function store(Request $request)
 	{
 		$this->validate($request, [
-			'request_no' => 'required',
+			//'request_no' => 'required',
 			'service_item_id' => 'required',
 			'rate' => 'required|numeric',
 			'priority' => 'required|not_in:0',
@@ -54,7 +73,7 @@ class RequestController extends Controller
 		$input['description'] = Input::get('description');
 		
 		$rules = array(
-			'request_no' => 'unique:tbl_request,request_no',
+			//'request_no' => 'unique:tbl_request,request_no',
 			'user_id' => 'required:tbl_request,user_id',
 			'service_item_id' => 'required:tbl_service_item,service_item_id',
 			'rate' => 'required:tbl_request,rate',
@@ -74,42 +93,30 @@ class RequestController extends Controller
 			$request->status = "Closed";
 			$request->support_status = "Open";
 			$request -> save();
-			Session::flash('flash_message', 'Request successfully created!');
+			Session::flash('flash_message', 'Request successfully submitted');
 		    return redirect()->back();
 		}
 		
-		
 	}
-	public function edit()
+	public function edit($id)
 	{
-		
+		$request = ClientRequest::find($id);
+		$service_item = [''=>''] + ServiceItemModel::lists('service_item_name', 'id')->all();
+		$department = [''=>''] + DepartmentList::lists('dept_name', 'id')->all();
+		return \View::make('client/request/update', compact('department', 'service_item', 'request'));
 	}
-	public function update()
+	public function update(Request $request, $id)
 	{
-		
+		$request_update = $request->all();
+		$request = ClientRequest::find($id);
+		$request->update($request_update);
+		Session::flash('update_message', 'Request has been successfully update.');
+		return redirect()->back();
 	}
 	public function delete()
 	{
 		
 	}
-	public function getLastInsertId()
-	{
-		$service_item = [''=>''] + ServiceItemModel::lists('service_item_name', 'id')->all();
-		$department = [''=>''] + DepartmentList::lists('dept_name', 'id')->all();
-		
-		
-		$sql = DB::table('tbl_request')->pluck('request_no');
-        if (count($sql) > 0) {
-            $sql = explode('-', $sql[0]);
-			//dd($sql)->toArray();
-            $sql_count =  (int)$sql[1]+1;
-			//dd($sql_count);
-			return \View::make('client/request/index', compact('sql_count', 'department', 'service_item'));
-        } else {
-			$sql_count = 1;
-           return \View::make('client/request/index', compact('sql_count','department', 'service_item'));
-        }
-		
-	}
+
 
 }

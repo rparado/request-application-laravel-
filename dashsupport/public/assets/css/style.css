@@ -308,6 +308,21 @@ table.ui-datepicker-calendar tbody td a:hover,
 .ui-helper-hidden-accessible {
 	display: none;
 }
+.profile_info h2 {
+	margin-bottom: 5px !important;
+}
+.online-ico {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #4CAF50;
+	display: inline-block
+}
+.profile_info .online-text {
+	color: #1e94ca;
+	margin-left: 5px;
+}
+
 
 .nav-sm .main_container .top_nav {
   display: block;
@@ -4485,3 +4500,59 @@ ul.notifications {
   border: 1px solid #e5e5e5; }
 
 /** /Dropzone.js **/
+
+
+/*Icheck*/
+/* iCheck plugin Flat skin, green
+----------------------------------- */
+.icheckbox_flat-green,
+.iradio_flat-green {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(../images/sprite.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_flat-green {
+    background-position: 0 0;
+}
+.icheckbox_flat-green.checked {
+	background-position: -22px 0;
+}
+.icheckbox_flat-green.disabled {
+	background-position: -44px 0;
+	cursor: default;
+}
+.icheckbox_flat-green.checked.disabled {
+	background-position: -66px 0;
+}
+
+.iradio_flat-green {
+    background-position: -88px 0;
+}
+.iradio_flat-green.checked {
+	background-position: -110px 0;
+}
+.iradio_flat-green.disabled {
+	background-position: -132px 0;
+	cursor: default;
+}
+.iradio_flat-green.checked.disabled {
+	background-position: -154px 0;
+}
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+    .icheckbox_flat-green,
+    .iradio_flat-green {
+        background-image: url(green@2x.png);
+        -webkit-background-size: 176px 22px;
+        background-size: 176px 22px;
+    }
+}

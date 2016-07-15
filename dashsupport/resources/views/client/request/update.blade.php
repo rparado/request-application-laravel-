@@ -3,29 +3,18 @@
 @section('title')
 @section('main')
 	<div class="x_panel">
-		<div class="x_title"><h3>Create Request</h3></div>
+		<div class="x_title"><h3>Update Request</h3></div>
 		<div class="x_content">
-			@if($errors->has())
-			<div class="alert alert-danger fade in">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
-			</button>
-				<ul class="validation-result">
-					@foreach($errors->all() as $error)
-						<li>
-							{{$error}}
-						</li>
-					@endforeach
-				</ul>
-			</div>
-			@endif
-			@if(Session::has('flash_message'))
-				<div class="alert alert-success fade in"><span class="glyphicon glyphicon-ok"></span><em> {{ Session::get('flash_message') }}</em><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+
+			@if(Session::has('update_message'))
+				<div class="alert alert-success fade in"><span class="glyphicon glyphicon-ok"></span><em> {{ Session::get('update_message') }}</em><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
 			</button></div>
 			@endif
-			{!! Form::open(['url' => 'client/request', 'method' => 'post', 'class' => 'clientrequestform row']) !!}
+			
+			{!! Form::model($request, ['route' => ['client.request.update', $request->id], 'method' => 'PATCH', 'class' => 'clientrequestform-update row']) !!}
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('request no', 'Request Number') !!}
-					{!! Form::text('request_no','Req-'.sprintf('%1$010d',$result_count), array('class' => 'form-control', 'readonly')) !!}
+					{!! Form::text('request_no','Req-'.sprintf('%1$010d',''), array('class' => 'form-control')) !!}
 				</div>
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('date requested', 'Date Requested') !!}
@@ -67,7 +56,7 @@
 					{!! Form::textarea('description',null, array('class' => 'form-control desc-field')) !!}
 				</div>
 				<div class="form-group col-xs-12">
-					{!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+					{!! Form::submit('Update', ['class' => 'btn btn-success']) !!}
 				</div>
 			{!! Form::close() !!}
 		</div>

@@ -53,6 +53,12 @@
 			<div class="right_col">
  				@yield('main')
 			</div>
+			<footer>
+			  <div class="pull-right">
+				Copyright &copy; 2016 Dash Support v1.0 | Rolando Parado</a>
+			  </div>
+			  <div class="clearfix"></div>
+			</footer>
 		</div>
 		</div>	
 		
@@ -60,6 +66,7 @@
 		<script src="{{asset('assets/js/bootstrap.js')}}"></script>
 		<script src="{{asset('assets/js/jquery-ui.js')}}"></script>
 		<script src="{{asset('assets/js/jquery.dataTables.js')}}"></script>
+		<script src="{{asset('assets/js/icheck.min.js')}}"></script>
 		<script src="{{asset('assets/js/summernote.js')}}"></script>
 		<script src="{{asset('assets/js/script.js')}}"></script>
 	</body>

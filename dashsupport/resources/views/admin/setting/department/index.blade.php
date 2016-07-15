@@ -21,10 +21,14 @@
 				</ul>
 			</div>
 			@endif
+			@if(Session::has('dept_mesage'))
+				<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('dept_mesage') !!}</em>
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</div>
+			@endif
 			{!! Form::open(['url' => 'admin/setting/department', 'method' => 'post', 'class' => 'departmentform row']) !!}
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('Department number', 'Department number') !!}
-					{!! Form::text('dept_no',null, array('class' => 'form-control', 'placeholder' => 'Enter Department Number')) !!}
+					{!! Form::text('dept_no','Dept-'.sprintf('%1$010d', $result_count), array('class' => 'form-control', 'readonly')) !!}
 				</div>
 
 				<div class="form-group col-xs-12 col-md-6">
