@@ -64,5 +64,5 @@ Route::resource('client/dashboard', 'Client\DashboardController');
 Route::resource('client/request', 'Client\RequestController');
 
 /*================AJAX POST Controllers=============================*/
-//Route::post('client/request','Admin\ServiceController@getServiceItem');
+Route::post('client/request','Admin\ServiceController@getServiceItem');
 

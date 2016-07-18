@@ -90,9 +90,9 @@ class ServiceController extends Controller
 		return redirect('admin/setting/service');
 	}
 	
-	/*public function getServiceItem(Request $request)
+	public function getServiceItem(Request $request)
 	{
 		$data = $request->all();
 		echo json_encode($data);
-	}*/
+	}
 }
