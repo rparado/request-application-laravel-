@@ -91,39 +91,47 @@
 			'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
 		  }
 		});
+
+			
 		if($('#service_item_id').length > 0) {
 			$('#service_item_id').on('change', function(){
 				var id = $(this).val();
+
 				$.ajax({
-						method: 'POST', // Type of response and matches what we said in the route
-						url: '/client/request', // This is the url we gave in the route
-						data: {'id' : id}, // a JSON object to send back
-						success: function(response){ // What to do if we succeed
-							response = $.parseJSON(response);
-							console.log(response);
-							$("#rate").val(response.rate)
-							
+						method: 'GET',
+						url: '/client/request/index/' + id,
+						//data: {'id' : id},
+						success: function(response){
+							//console.log('rate', response)
+							$.each($.parseJSON(response), function(key, value){
+								if(value.id==id) {
+									$("#rate").val(value.rate);
+								}
+								
+							})
 						},
-						error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+						error: function(jqXHR, textStatus, errorThrown) {
 							console.log(JSON.stringify(jqXHR));
 							console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
 					}
 				});
-				
+
 			})
-			
+
 		}
+
+		
 		if($('.desc-field').length > 0) {
 			$('.desc-field').summernote({
 				height: 200,                 // set editor height
 				minHeight: null,             // set minimum height of editor
 				maxHeight: null,             // set maximum height of editor
 				focus: true,
-				enterHtml: '<p><br></p>'
+				enterHtml: '',
+				shortcuts: false
 			});
 		}
-		
-		
+	
 	});
 
 })(jQuery);

@@ -4556,3 +4556,7 @@ ul.notifications {
         background-size: 176px 22px;
     }
 }
+
+.no-data-found {
+	text-align: center;
+}

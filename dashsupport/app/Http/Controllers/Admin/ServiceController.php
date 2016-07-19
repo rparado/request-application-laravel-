@@ -90,9 +90,10 @@ class ServiceController extends Controller
 		return redirect('admin/setting/service');
 	}
 	
-	public function getServiceItem(Request $request)
+	public function getServiceItem(Request $request, $id)
 	{
-		$data = $request->all();
+		//$data = ServiceItemModel::find($id)->select('rate')->get()->toArray();
+		$data = ServiceItemModel::all();
 		echo json_encode($data);
 	}
 }

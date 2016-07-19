@@ -13,6 +13,7 @@ use App\ServiceItemModel;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 use Session;
 use Carbon\Carbon;
 use DB;
@@ -22,13 +23,16 @@ class RequestController extends Controller
     public function index()
 	{
 		//$departments = DepartmentModel::with('dept_name');
+		$id = Auth::user()->id;
 		$requests = DB::table('tbl_request')
             ->join('tbl_department', 'tbl_request.dept_id', '=', 'tbl_department.id')	
 			->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
 			->select('tbl_request.*', 'tbl_department.dept_name', 'tbl_service_item.service_item_name')
+			->where('tbl_request.user_id',$id)
             ->get();
-		//dd($requests);
-		return \View::make('client/request/requestlist', compact('requests'));
+		
+			return \View::make('client/request/requestlist', compact('requests'));
+		
 	}
 	public function create()
 	{
@@ -103,6 +107,7 @@ class RequestController extends Controller
 		$request = ClientRequest::find($id);
 		$service_item = [''=>''] + ServiceItemModel::lists('service_item_name', 'id')->all();
 		$department = [''=>''] + DepartmentList::lists('dept_name', 'id')->all();
+
 		return \View::make('client/request/update', compact('department', 'service_item', 'request'));
 	}
 	public function update(Request $request, $id)

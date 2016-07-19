@@ -14,7 +14,7 @@
 			{!! Form::model($request, ['route' => ['client.request.update', $request->id], 'method' => 'PATCH', 'class' => 'clientrequestform-update row']) !!}
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('request no', 'Request Number') !!}
-					{!! Form::text('request_no','Req-'.sprintf('%1$010d',''), array('class' => 'form-control')) !!}
+					{!! Form::text('request_no',null, array('class' => 'form-control', 'readonly')) !!}
 				</div>
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('date requested', 'Date Requested') !!}

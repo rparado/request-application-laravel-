@@ -42,7 +42,7 @@ Route::controllers([
 // Route::auth();
 // Route::get('/', 'HomeController@index');
 
-Route::group(array('before' => 'auth'), function(){
+Route::group(array('before' => 'auth', 'middleware' => 'web'), function(){
 	Route::auth();
     Route::get('/', 'HomeController@index');
 	Route::get('admin/dashboard', 'PagesController@dashboard');
@@ -61,8 +61,8 @@ Route::resource('admin/setting/service', 'Admin\ServiceController');
 
 Route::resource('client/dashboard', 'Client\DashboardController');
 //Route::get('client/request/index', 'Client\RequestController@getLastInsertId');
-Route::resource('client/request', 'Client\RequestController');
 
+Route::resource('client/request', 'Client\RequestController');
 /*================AJAX POST Controllers=============================*/
-Route::post('client/request','Admin\ServiceController@getServiceItem');
+Route::get('client/request/index/{id}','Admin\ServiceController@getServiceItem');
 

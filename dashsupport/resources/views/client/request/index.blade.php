@@ -22,7 +22,7 @@
 				<div class="alert alert-success fade in"><span class="glyphicon glyphicon-ok"></span><em> {{ Session::get('flash_message') }}</em><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
 			</button></div>
 			@endif
-			{!! Form::open(['url' => 'client/request', 'method' => 'post', 'class' => 'clientrequestform row']) !!}
+			{!! Form::open(['url' => 'client/request', 'method' => 'post', 'class' => 'clientrequestform row', 'id' => 'clientrequest']) !!}
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('request no', 'Request Number') !!}
 					{!! Form::text('request_no','Req-'.sprintf('%1$010d',$result_count), array('class' => 'form-control', 'readonly')) !!}
@@ -67,7 +67,7 @@
 					{!! Form::textarea('description',null, array('class' => 'form-control desc-field')) !!}
 				</div>
 				<div class="form-group col-xs-12">
-					{!! Form::submit('Submit', ['class' => 'btn btn-success']) !!}
+					{!! Form::submit('Submit', ['class' => 'btn btn-success', 'id' => 'submit-request']) !!}
 				</div>
 			{!! Form::close() !!}
 		</div>

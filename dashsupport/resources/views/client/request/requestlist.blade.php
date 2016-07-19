@@ -48,6 +48,10 @@
 						@endforeach
 					</tbody>
 				</table>
+			@else 
+			<div class="no-data-found">
+				<h2>You have no request created</h2>
+			</div>	
 			@endif
 		</div>
 	</div>
