@@ -69,7 +69,7 @@
 		if($("#due_date").length > 0) {
 			var dateToday = new Date();
 			var dates = $("#due_date").datepicker({
-				showOn: "both",
+				//showOn: "both",
 				dateFormat: 'yy-mm-dd',
 				//buttonImage: "/asset/images/calendar.png",
 				buttonImageOnly: false,
@@ -96,18 +96,17 @@
 		if($('#service_item_id').length > 0) {
 			$('#service_item_id').on('change', function(){
 				var id = $(this).val();
-
 				$.ajax({
 						method: 'GET',
 						url: '/client/request/index/' + id,
-						//data: {'id' : id},
 						success: function(response){
-							//console.log('rate', response)
 							$.each($.parseJSON(response), function(key, value){
-								if(value.id==id) {
+								console.log('value', value);
+								if(value.id == id) {
 									$("#rate").val(value.rate);
+									$('#select-department').find('option:selected').prop('selected',false);
+									$('#select-department').find('option[value="'+ value.dept_id +'"]').prop('selected',true);
 								}
-								
 							})
 						},
 						error: function(jqXHR, textStatus, errorThrown) {

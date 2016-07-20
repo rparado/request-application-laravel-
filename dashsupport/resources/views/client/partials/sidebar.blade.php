@@ -16,7 +16,7 @@
             <div class="profile_info">
                 
                 @if (Auth::check()) 
-                	<h2>{{ Auth::user()->first_name }} {{ Auth::user()->last_name}}</h2>
+                	<h2>{{ ucfirst(Auth::user()->first_name) }} {{ ucfirst(Auth::user()->last_name) }}</h2>
                 	<span class="online-ico"></span><span class="online-text">Online</span>
                 @endif
             </div>

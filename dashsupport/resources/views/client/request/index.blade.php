@@ -33,7 +33,7 @@
 				</div>
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('requester', 'Requester') !!}
-					<input type="text" class="form-control" name="requester" value="<?php echo Auth::user()->first_name; ?> <?php echo Auth::user()->last_name; ?>" disabled/>
+					<input type="text" class="form-control" name="requester" value="<?php echo ucfirst(Auth::user()->first_name); ?> <?php echo ucfirst(Auth::user()->last_name); ?>" disabled/>
 					<input type="hidden" value="<?php echo Auth::user()->id; ?>" name="user_id">
 				</div>
 				<div class="form-group col-xs-12 col-md-6">
@@ -60,7 +60,7 @@
 				</div>
 				<div class="form-group col-xs-12 col-md-6" id="departmentList">
 					{!! Form::Label('department', 'Department') !!}
-					{!! Form::select('dept_id',$department, null, array('class' => 'form-control')) !!}
+					{!! Form::select('dept_id',$department, null, array('class' => 'form-control', 'id' => 'select-department')) !!}
 				</div>
 				<div class="form-group col-xs-12" id="selectedDepartment">
 					{!! Form::Label('description', 'Description') !!}

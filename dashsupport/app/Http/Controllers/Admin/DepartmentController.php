@@ -81,9 +81,9 @@ class DepartmentController extends Controller
 		DepartmentModel::find($id)->delete();
 		return redirect('admin/setting/department');
 	}
-	public function geDepartmentItem(Request $request)
+	public function geDepartmentItem()
 	{
-		$data = $request->all();
-		dd($data);
+		$data = DepartmentModel::all();
+		echo json_encode($data);
 	}
 }
