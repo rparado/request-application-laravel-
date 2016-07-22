@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\ClientRequest;
 use App\User;
 use App\DepartmentModel;
 use App\ServiceItemModel;
@@ -35,6 +36,9 @@ class HomeController extends Controller
 				return redirect()->intended('/admin/dashboard');
 			}
 		}
-		return \View::make('client/dashboard/index');
+		$id = Auth::user()->id;
+		$request_submitted = ClientRequest::where(['status' => 'Submitted', 'user_id' => $id])->count();
+		//$request_open = ClientRequest::where(['status' => 'Open', 'user_id' => $id])->count();
+		return \View::make('client/dashboard/index', compact('request_submitted'));
     }
 }

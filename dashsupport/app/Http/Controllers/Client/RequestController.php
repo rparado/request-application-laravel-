@@ -17,9 +17,15 @@ use App\User;
 use Session;
 use Carbon\Carbon;
 use DB;
-
+use App\RecieveRequestModel;
 class RequestController extends Controller
 {
+	public function __construct(ClientRequest $request, RecieveRequestModel $new_request)
+	{
+		$this->middleware('auth');
+		$this->request = $request;
+        $this->new_request = $new_request;
+	}
     public function index()
 	{
 		//$departments = DepartmentModel::with('dept_name');
@@ -36,10 +42,10 @@ class RequestController extends Controller
 	}
 	public function create()
 	{
-		
 		$service_item = [''=>''] + ServiceItemModel::lists('service_item_name', 'id')->all();
 		$department = [''=>''] + DepartmentList::lists('dept_name', 'id')->all();
 		$results = DB::table('tbl_request')->select('request_no')->orderBy('id', 'desc')->limit(1)->get();
+		
 		if(count($results) > 0) {
 			foreach($results as $result) {
 				if (count($result) > 0) {
@@ -51,14 +57,23 @@ class RequestController extends Controller
 
 				}
 			}
-		}	
+		} else {
+			if (count($results) < 0) {
+				$result = explode('-', $results->request_no);
+				$result_count =  (int)$results[1]+1;
+
+			} else {
+				$result_count = 1;
+
+			}
+		}
 		
 		return \View::make('client/request/index', compact('department', 'service_item', 'requests', 'result_count'));
 	}
 	public function store(Request $request)
 	{
 		$this->validate($request, [
-			//'request_no' => 'required',
+			'request_no' => 'required',
 			'service_item_id' => 'required',
 			'rate' => 'required|numeric',
 			'priority' => 'required|not_in:0',
@@ -77,7 +92,7 @@ class RequestController extends Controller
 		$input['description'] = Input::get('description');
 		
 		$rules = array(
-			//'request_no' => 'unique:tbl_request,request_no',
+			'request_no' => 'unique:tbl_request,request_no',
 			'user_id' => 'required:tbl_request,user_id',
 			'service_item_id' => 'required:tbl_service_item,service_item_id',
 			'rate' => 'required:tbl_request,rate',
@@ -94,9 +109,41 @@ class RequestController extends Controller
 			$request = new ClientRequest($request->all());
 			$request -> user_id = Auth::id();
 			$request->date_requested =  Carbon::now()->format('Y-m-d');
-			$request->status = "Closed";
+			$request->status = "Submitted";
 			$request->support_status = "Open";
 			$request -> save();
+			
+			$request_id = $request->id;
+			
+			if($request->status == 'Submitted') {
+				
+				$request_received = DB::table('tbl_received_request')->select('received_no')->orderBy('id', 'desc')->limit(1)->get();
+				if(count($request_received) > 0) {
+					foreach($request_received as $request_receive) {
+						if (count($request_receive) > 0) {
+							$request_receive = explode('-', $request_receive->received_no);
+							$result_count =  (int)$request_receive[1]+1;
+
+						} else {
+							$result_count = 1;
+						}
+					}
+				} else {
+					if (count($request_received) < 0) {
+						$request_receive = explode('-', $request_receive->received_no);
+						$result_count =  (int)$request_receive[1]+1;
+					} else {
+						$result_count = 1;
+					}
+				}
+				$new_request = new RecieveRequestModel();
+				$new_request->received_no = 'Supt-'.sprintf('%1$010d', $result_count);
+				$new_request->date_received =  Carbon::now()->format('Y-m-d');
+				$new_request->request_id = $request_id;
+				$new_request->user_id = Auth::id();
+				$new_request->status = 'Open';
+				$request->request()->save($new_request);
+			}
 			Session::flash('flash_message', 'Request successfully submitted');
 		    return redirect()->back();
 		}
@@ -118,10 +165,14 @@ class RequestController extends Controller
 		Session::flash('update_message', 'Request has been successfully update.');
 		return redirect()->back();
 	}
-	public function delete()
+	public function destroy($id)
 	{
+	}
+	public function cancelled($id)
+	{
+		dd($id);
+		return \View::make('client/request');
 		
 	}
-
 
 }

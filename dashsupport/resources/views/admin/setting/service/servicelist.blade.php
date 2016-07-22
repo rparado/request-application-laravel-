@@ -12,7 +12,7 @@
 			<h3>Service Items</h3>
 		</div>
 		<div class="x_content">
-			<table class="table table-striped table-bordered clearfix" id="service-table">
+			<table class="table table-striped table-bordered clearfix jambo_table bulk_action" id="service-table">
 				<thead>
 					<tr>
 						<th>Service Item Number</th>

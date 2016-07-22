@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="{{asset('assets/css/jquery.dataTables.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" />
+		<link rel="stylesheet" href="{{asset('assets/css/summernote.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
 	</head>
 	<body class="nav-md">
@@ -27,9 +28,10 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
+						
                         <li class="dropdown">
                             <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <img src="/assets/images/user.png" alt="">Hello Admin, {{ Auth::user()->first_name  }} <span class="caret"></span>
+                                <img src="/assets/images/user.png" alt="">Hello Admin, {{ ucfirst(Auth::user()->first_name)  }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -43,6 +45,12 @@
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
+                        <li role="presentation" class="dropdown">
+							<a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+								<i class="fa fa-envelope-o"></i>
+								<span class="badge bg-green">6</span>
+							</a>
+						</li>
                     @endif
                 </ul>
 
@@ -64,7 +72,8 @@
 		<script src="{{asset('assets/js/jquery-1.12.3.min.js')}}"></script>
 		<script src="{{asset('assets/js/bootstrap.js')}}"></script>
 		<script src="{{asset('assets/js/jquery.dataTables.js')}}"></script>
-		<script src="{{asset('assets/js/icheck.js')}}"></script>
+		<script src="{{asset('assets/js/icheck.min.js')}}"></script>
+		<script src="{{asset('assets/js/summernote.js')}}"></script>
 		<script src="{{asset('assets/js/script.js')}}"></script>
 	</body>
 </html>

@@ -32,9 +32,12 @@ class PagesController extends Controller
 	{
 		return \View::make('admin.setting.service.index');
 	}
+	public function adminSupport()
+	{
+		return \View::make('admin.support.index');
+	}
 	
 	//client
-	
 	public function clientRequest()
 	{
 		return \View::make('client.request.index');

@@ -7,17 +7,18 @@
 			<div class="x_panel">
 				<div class="x_title">
 					<h2>Request Summary</h2>
+					
 				</div>
 				<div class="x_content">
 					<div class="animated flipInY col-xs-12 col-md-6">
 						<div class="tile-stats">
-							<div class="count"></div>
+							<div class="count">{{$request_submitted}}</div>
 							<h3>Submitted</h3>
 						</div>
 					</div>
 					<div class="animated flipInY col-xs-12 col-md-6">
 						<div class="tile-stats">
-							<div class="count">179</div>
+							<div class="count">{{}}</div>
 							<h3>Open</h3>
 						</div>
 					</div>

@@ -9,7 +9,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\DepartmentModel;
 use App\ServiceItemModel;
-
+use App\ClientRequest;
+use App\RecieveRequestModel;
 class DashboardController extends Controller
 {
 
@@ -19,6 +20,8 @@ class DashboardController extends Controller
 		$users = User::count();
 		$departments = DepartmentModel::count();
 		$services = ServiceItemModel::count();
-		return view('admin.dashboard.index', compact('title','users', 'departments', 'services'));
+		$request_sent = ClientRequest::count();
+		$support_request = RecieveRequestModel::count();
+		return view('admin.dashboard.index', compact('title','users', 'departments', 'services', 'request_sent', 'support_request'));
 	}
 }

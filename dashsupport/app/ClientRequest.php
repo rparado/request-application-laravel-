@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Eloquent;
 
-class ClientRequest extends Model
+class ClientRequest extends Eloquent
 {
     protected $table = 'tbl_request';
 	protected $guarded = array('id');
@@ -17,7 +18,12 @@ class ClientRequest extends Model
 		'priority',
 		'due_date',
 		'dept_id',
-		'description'
+		'description',
+		'status'
 	];
-
+	
+	public function request()
+	{
+		return $this->hasOne('App\RecieveRequestModel', 'id');
+	}
 }

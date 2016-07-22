@@ -179,6 +179,9 @@ table tr td {
 .site_title i {
   padding: 5px 6px;
 }
+.ui-helper-hidden-accessible {
+	display: none !important;
+}
 /* DatePicker Container */
 #due_date {
 	position: relative;
@@ -800,7 +803,7 @@ table.dataTable thead .sorting_desc:after {
 }
 .dataTables_wrapper table {
 	margin-top: 10px;
-	border: none;
+	border: none !important;
 }
 .dataTables_wrapper input[type="search"] {
 	display: inline-block;
@@ -844,6 +847,28 @@ table.dataTable thead .sorting_desc:after {
 }
 .count_top i {
 	margin-right: 5px;
+}
+#support-table tbody tr.urgent.alert-danger {
+	background: rgba(231, 76, 60, 0.88);
+	border: none;
+}
+#support-table tbody tr td a {
+	color: #fff;
+}
+#support-table tbody tr.high.alert-danger {
+	background: rgba(231, 76, 60, 0.88);
+}
+#support-table tbody tr.medium.alert-warning {
+	background: #f0ad4e;
+}
+#support-table tbody tr.low.alert-info {
+	background: #5bc0de;
+}
+#cancel-status label {
+	display: block;
+}
+#description .note-editor {
+	margin-bottom: 0;
 }
 @media (min-width: 480px) {
   .top_nav .navbar-right li {

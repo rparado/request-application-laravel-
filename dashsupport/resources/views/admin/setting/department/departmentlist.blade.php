@@ -10,7 +10,7 @@
 			<h3>Departments Data</h3>
 		</div>
 		<div class="x_content">
-			<table class="table table-striped table-bordered clearfix  bulk_action" id="department-table">
+			<table class="table table-striped table-bordered clearfix jambo_table bulk_action" id="department-table">
 				<thead>
 					<tr>
 						<!--<th><input type="checkbox" class="flat"></th>-->

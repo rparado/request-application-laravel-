@@ -51,7 +51,7 @@
 					{!! Form::Label('department', 'Department') !!}
 					{!! Form::select('dept_id',$department, null, array('class' => 'form-control')) !!}
 				</div>
-				<div class="form-group col-xs-12" id="selectedDepartment">
+				<div class="form-group col-xs-12" id="description">
 					{!! Form::Label('description', 'Description') !!}
 					{!! Form::textarea('description',null, array('class' => 'form-control desc-field')) !!}
 				</div>

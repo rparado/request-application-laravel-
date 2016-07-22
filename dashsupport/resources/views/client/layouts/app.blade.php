@@ -34,7 +34,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                               	<li><a href="javascript:;"> Profile</a></li>
+                               	<li><a href="{{url('client/user/profileupdate')}}"> Profile</a></li>
 								<li>
 									<a href="javascript:;">
 									<span class="badge bg-red pull-right">50%</span>

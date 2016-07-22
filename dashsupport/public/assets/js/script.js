@@ -9,7 +9,7 @@
 				"pageLength" : 5,
 				"lengthMenu" : [5, 10, 15, 20],
 				"bDestroy" : true,
-				"bSort" : true,
+				"bSort" : false,
 				//"sPaginationType" : "full_numbers",
 				"iDisplayLength" : 5,
 				"bLengthChange" : true,
@@ -25,7 +25,7 @@
 				"pageLength" : 5,
 				"lengthMenu" : [5, 10, 15, 20],
 				"bDestroy" : true,
-				"bSort" : true,
+				"bSort" : false,
 				//"sPaginationType" : "full_numbers",
 				"iDisplayLength" : 5,
 				"bLengthChange" : true,
@@ -41,7 +41,7 @@
 				"pageLength" : 5,
 				"lengthMenu" : [5, 10, 15, 20],
 				"bDestroy" : true,
-				"bSort" : true,
+				"bSort" : false,
 				//"sPaginationType" : "full_numbers",
 				"iDisplayLength" : 5,
 				"bLengthChange" : true,
@@ -53,6 +53,18 @@
 		}
 		if($('#client-request-table').length > 0) {
 			$('#client-request-table').dataTable({
+				//"order": [[ 3, "ASC" ]],
+				"pageLength" : 5,
+				"lengthMenu" : [5, 10, 15, 20],
+				"bDestroy" : true,
+				"bSort" : false,
+				//"sPaginationType" : "full_numbers",
+				"iDisplayLength" : 5,
+				"bLengthChange" : true
+			});
+		}
+		if($('#support-table').length > 0) {
+			$('#support-table').dataTable({
 				//"order": [[ 3, "ASC" ]],
 				"pageLength" : 5,
 				"lengthMenu" : [5, 10, 15, 20],
@@ -130,7 +142,6 @@
 				shortcuts: false
 			});
 		}
-	
 	});
 
 })(jQuery);

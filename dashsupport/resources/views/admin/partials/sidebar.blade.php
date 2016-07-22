@@ -14,9 +14,9 @@
                 <img src="/assets/images/user.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-                <span>Welcome,</span>
                 @if (Auth::check()) 
-                <h2>{{ Auth::user()->first_name }}</h2>
+                <h2> Welcome, {{ ucfirst(Auth::user()->first_name) }}</h2>
+                <span class="online-ico"></span><span class="online-text">Online</span>
                 @endif
             </div>
         </div>
@@ -49,16 +49,11 @@
                             <li><a href="{{url('admin/setting/user')}}">User List</a></li>
                             <li><a href="{{url('admin/setting/department')}}">Department list</a></li>
                             <li><a href="{{url('admin/setting/service')}}">Service list</a></li>
+                            <li><a href="{{url('admin/support')}}">Support</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-bar-chart-o"></i> Reports <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="chartjs.html">Chart JS</a></li>
-                            <li><a href="chartjs2.html">Chart JS2</a></li>
-                            <li><a href="morisjs.html">Moris JS</a></li>
-                            <li><a href="echarts.html">ECharts </a></li>
-                            <li><a href="other_charts.html">Other Charts </a></li>
-                        </ul>
+                    <li><a><i class="fa fa-bar-chart-o"></i> Reports</a>
+                       
                     </li>
                 </ul>
             </div>

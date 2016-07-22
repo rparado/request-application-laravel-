@@ -24,28 +24,32 @@ Route::get('admin/setting/department/index', 'Admin\DepartmentController@create'
 Route::get('admin/setting/service', 'PagesController@service');
 Route::get('admin/setting/service/index', 'Admin\ServiceController@create');
 
+
 //client
+//Route::get('client/dashboard', ['as' => 'client/dashboard', 'uses' => 'PagesController@clientDashboard']);
+
 Route::get('client/dashboard', 'PagesController@clientDashboard');
-Route::get('client/request/', 'PagesController@clientRequest');
+Route::get('client/request', 'PagesController@clientRequest');
 Route::get('client/request/index', 'Client\RequestController@create');
+Route::get('client/request', 'Client\RequestController@cancelled');
+
+//Route::get('client/request/{id}', array('as' => 'cancel', 'uses' => 'Client\RequestController@cancel'));
 /*===================login Routes=============================*/
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
-//Route::group(['prefix' => 'admin', 'middleware' => 'users'], function () {
-//	Route::get('/', 'Admin\DashboardController@index');
-//});
-//Route::auth();
-//Route::get('/', 'HomeController@index');
-
-// Route::auth();
-// Route::get('/', 'HomeController@index');
 
 Route::group(array('before' => 'auth', 'middleware' => 'web'), function(){
 	Route::auth();
     Route::get('/', 'HomeController@index');
 	Route::get('admin/dashboard', 'PagesController@dashboard');
+	Route::get('client/dashboard', 'PagesController@clientDashboard');
+	Route::get('client/user/profileupdate', 'Client\ProfileUpdate@index');
+	Route::patch('client/user/profileupdate/{id}',[
+		'as' => 'client.user.profileupdate',
+		'uses' => 'Client\ProfileUpdate@update'
+	]);
 });
     //Route::get('/', 'HomeController@index');
 /*===================Export===================================*/
@@ -57,12 +61,12 @@ Route::resource('admin/dashboard', 'Admin\DashboardController');
 Route::resource('admin/setting/user', 'Admin\UserController');
 Route::resource('admin/setting/department', 'Admin\DepartmentController');
 Route::resource('admin/setting/service', 'Admin\ServiceController');
-
+Route::resource('admin/support', 'Admin\SupportController');
 
 Route::resource('client/dashboard', 'Client\DashboardController');
 //Route::get('client/request/index', 'Client\RequestController@getLastInsertId');
-
 Route::resource('client/request', 'Client\RequestController');
+
 /*================AJAX POST Controllers=============================*/
 Route::get('client/request/index/{id}','Admin\ServiceController@getServiceItem');
 //Route::post('client/request/index/{id}','Admin\DepartmentController@geDepartmentItem');

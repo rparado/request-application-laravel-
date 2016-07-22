@@ -18,6 +18,16 @@
 		  <div class="count">{{$services}}</div>
 <!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
 		</div>
+		<div class="col-md-2 col-sm-4 col-xs-6 users_count">
+		  <span class="count_top"><i class="fa fa-user"></i>No. of request</span>
+		  <div class="count">{{$request_sent}}</div>
+<!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
+		</div>
+		<div class="col-md-2 col-sm-4 col-xs-6 users_count">
+		  <span class="count_top"><i class="fa fa-user"></i>Support</span>
+		  <div class="count">{{$support_request}}</div>
+<!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
+		</div>
 	</div>
 	
 	<div class="x_panel">

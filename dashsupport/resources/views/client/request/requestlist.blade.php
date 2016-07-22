@@ -9,7 +9,10 @@
 			</div>
 			<div class="pull-right" style="line-height:46px;">
 				<a style="margin-bottom: 0;" href="{{url('/client/request/index')}}" class="btn btn-md btn-success"><i class="fa fa-plus" aria-hidden="true"></i> New</a>
-				<a  style="margin-bottom: 0;" class="btn btn-primary btn-close" href="{{ route('client.request.index') }}"><i class="fa fa-remove" aria-hidden="true"></i> Cancel</a>
+				
+				</td>
+				<a style="margin-bottom: 0;" class="btn btn-primary btn-cancel" href="{{ action('Client\RequestController@cancelled') }}"><i class="fa fa-close" aria-hidden="true"></i> Cancel</a>
+				<button type="button" class="btn btn-default">Cancelled</button>
 			</div>
 			
 		</div>
@@ -20,7 +23,11 @@
 				<table class="jambo_table bulk_action table table-striped table-bordered" id="client-request-table">
 					<thead>
 						<tr>
-							<th><input type="checkbox" id="check-all" class="flat"></th>
+							<th>
+								<div class="icheckbox_flat-green">
+									<input type="checkbox" id="check-all" class="flat">
+								</div>
+							</th>
 							<th>Request Number</th>
 							<th>Request Date</th>
 							<th>Due Date</th>
@@ -44,6 +51,7 @@
 								<td>{{$request->service_item_name}}</td>
 								<td>{{$request->priority}}</td>
 								<td>{{$request->status}}</td>
+								
 							</tr>
 						@endforeach
 					</tbody>
