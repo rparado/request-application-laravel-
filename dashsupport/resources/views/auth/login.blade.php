@@ -31,6 +31,7 @@
                    			{!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Enter password')) !!}
                    		</div>
                    		<div class="col-xs-12">
+                   		<a href="redirect" class="btn btn-primary">Login with facebook</a>
                    			{!! Form::submit('Login', ['class' => 'btn btn-success']) !!}
 						</div>
                    {!! Form::close() !!}

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
 
 class AuthController extends Controller
 {
@@ -29,6 +31,7 @@ class AuthController extends Controller
      *
      * @var string
      */
+	protected $redirectPath = '/login';
 	protected $loginPath = '/login';
 	protected $redirectTo = '/';
 	protected $redirectAfterLogout = '/login';
@@ -75,4 +78,37 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+	
+	 /**
+     * Redirect the user to the Facebook authentication page.
+     *
+     * @return Response
+     */
+    /*  public function redirect()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function callback(SocialAccountService $service)
+    {
+		
+        $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
+        auth()->login($user);
+        return redirect('home');
+    }
+	private function findOrCreateUser($facebookUser)
+    {
+        $authUser = User::where('facebook_id', $facebookUser->id)->first();
+ 
+        if ($authUser){
+            return $authUser;
+        }
+ 
+        return User::create([
+            'name' => $facebookUser->name,
+            'email' => $facebookUser->email,
+            'facebook_id' => $facebookUser->id,
+            'avatar' => $facebookUser->avatar
+        ]);
+    }*/
 }

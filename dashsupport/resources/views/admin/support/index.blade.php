@@ -16,6 +16,7 @@
 						<th>Date Received</th>
 						<th>Due Date</th>
 						<th>Department</th>
+						<th>Service <br /> Requested</th>
 						<th>Requester</th>
 						<th>Priority</th>
 						<th>Status</th>
@@ -42,6 +43,9 @@
 						</td>
 						<td>
 							{{$support_request->dept_name}}
+						</td>
+						<td>
+							{{$support_request->service_item_name}}
 						</td>
 						<td>
 							{{ucfirst($support_request->first_name)}} {{ucfirst($support_request->last_name)}}

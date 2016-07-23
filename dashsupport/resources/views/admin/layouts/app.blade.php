@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/summernote.css')}}" />
+		<link rel="stylesheet" href="{{asset('assets/css/nprogress.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
 	</head>
 	<body class="nav-md">
@@ -74,6 +75,16 @@
 		<script src="{{asset('assets/js/jquery.dataTables.js')}}"></script>
 		<script src="{{asset('assets/js/icheck.min.js')}}"></script>
 		<script src="{{asset('assets/js/summernote.js')}}"></script>
+		<script src="{{asset('assets/js/bootstrap-progressbar.min.js')}}"></script>
+		<script src="{{asset('assets/js/Chart.min.js')}}"></script>
+		<script src="{{asset('assets/js/nprogress.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.time.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.stack.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.resize.js')}}"></script>
+		<script src="{{asset('assets/js/curvedLines.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.orderBars.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.spline.js')}}"></script>
 		<script src="{{asset('assets/js/script.js')}}"></script>
 	</body>
 </html>

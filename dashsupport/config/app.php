@@ -163,6 +163,7 @@ return [
 		Intervention\Image\ImageServiceProvider::class,
 		\Schuppo\PasswordStrength\PasswordStrengthServiceProvider::class,
 		 DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+		Laravel\Socialite\SocialiteServiceProvider::class,
     ],
 
     /*
@@ -213,6 +214,7 @@ return [
       	'Html' => Collective\Html\HtmlFacade::class,
 		'Image' => Intervention\Image\Facades\Image::class,
 		'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

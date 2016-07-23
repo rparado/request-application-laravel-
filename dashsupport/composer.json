@@ -13,7 +13,8 @@
 		"maatwebsite/excel": "~2.1.0",
         "intervention/image": "^2.3",
         "schuppo/password-strength": "~1.5.",
-        "davejamesmiller/laravel-breadcrumbs": "^3.0"
+        "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "laravel/socialite": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -18,4 +18,8 @@ class DashboardController extends Controller
 		return \View::make('client/dashboard/index', compact('request_submitted')); 
 		//return view('client.dashboard.index', compact('request'));
 	}
+	public function show()
+	{
+		return \View::make('client/dashboard'); 
+	}
 }

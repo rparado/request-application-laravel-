@@ -25,10 +25,8 @@
  
             <div class="menu_section">
                 <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{url('admin/dashboard')}}">Dashboard</a></li>
-                        </ul>
+                    <li>
+                    	<a href="{{url('admin/dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -46,10 +44,11 @@
                   
                     <li><a><i class="fa fa-table"></i> Datas <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{url('admin/setting/user')}}">User List</a></li>
-                            <li><a href="{{url('admin/setting/department')}}">Department list</a></li>
-                            <li><a href="{{url('admin/setting/service')}}">Service list</a></li>
-                            <li><a href="{{url('admin/support')}}">Support</a></li>
+                            <li><a href="{{url('admin/setting/user')}}">Users</a></li>
+                            <li><a href="{{url('admin/setting/department')}}">Departments</a></li>
+                            <li><a href="{{url('admin/setting/service')}}">Services</a></li>
+                            <li><a href="{{url('admin/request')}}">Requests</a></li>
+                            <li><a href="{{url('admin/support')}}">Supports</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-bar-chart-o"></i> Reports</a>

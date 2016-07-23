@@ -35,10 +35,10 @@ Route::get('client/request', 'Client\RequestController@cancelled');
 
 //Route::get('client/request/{id}', array('as' => 'cancel', 'uses' => 'Client\RequestController@cancel'));
 /*===================login Routes=============================*/
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
+//Route::controllers([
+//    'auth' => 'Auth\AuthController',
+//    'password' => 'Auth\PasswordController',
+//]);
 
 Route::group(array('before' => 'auth', 'middleware' => 'web'), function(){
 	Route::auth();
@@ -70,4 +70,11 @@ Route::resource('client/request', 'Client\RequestController');
 /*================AJAX POST Controllers=============================*/
 Route::get('client/request/index/{id}','Admin\ServiceController@getServiceItem');
 //Route::post('client/request/index/{id}','Admin\DepartmentController@geDepartmentItem');
+Route::get('redirect', 'SocialAuthController@redirect');
+Route::get('callback', 'SocialAuthController@callback');
+
+Route::get('home', function(){
+  return view('home');
+});
+
 
