@@ -842,7 +842,7 @@ table.dataTable thead .sorting_desc:after {
 .users_count,
 .department_count,
 .services_count,
-.request_count {
+.support_count {
 	margin-right: 19px;
 }
 /*.users_count:after {
@@ -875,6 +875,9 @@ table.dataTable thead .sorting_desc:after {
 .support_count .icon-wrapper {
 	background: #6dc7be;
 }
+.closed_count .icon-wrapper {
+	background: #b198dc;
+}
 .box-shadow .icon-wrapper .fa {
 	color: #fff;
 	line-height: 91px;
@@ -890,7 +893,7 @@ table.dataTable thead .sorting_desc:after {
 }
 .box-shadow .count_top,
 .box-shadow .count_bottom {
-	font-size: 13px;
+	font-size: 12px;
 	color: #57bdde;
 }
 .box-shadow .count {
@@ -922,6 +925,29 @@ table.dataTable thead .sorting_desc:after {
 }
 #description .note-editor {
 	margin-bottom: 0;
+}
+
+#canvas_dahs {
+	clear: both;
+}
+.legend-wrapper {
+	float: right;
+	padding-right: 20px;
+}
+.legend-request,
+.legend-support {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+}
+.legend-request {
+	background: rgba(3, 88, 106, 0.38);
+}
+.legend-support {
+	background: rgba(38, 185, 154, 0.38);
+}
+.legend-wrapper .legend-label {
+	margin-right: 10px;
 }
 @media (min-width: 480px) {
   .top_nav .navbar-right li {

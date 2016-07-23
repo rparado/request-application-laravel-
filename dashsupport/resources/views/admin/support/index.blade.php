@@ -12,14 +12,14 @@
 			<table class="table table-striped table-bordered clearfix jambo_table bulk_action" id="support-table">
 				<thead>
 					<tr>
-						<th>Receive Number</th>
+						<th>Support Number</th>
 						<th>Date Received</th>
 						<th>Due Date</th>
 						<th>Department</th>
 						<th>Service <br /> Requested</th>
 						<th>Requester</th>
 						<th>Priority</th>
-						<th>Status</th>
+						<th>Support <br />Status</th>
 						<th>Remarks</th>
 					</tr>
 				</thead>

@@ -42,19 +42,6 @@
 	<!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
 			</div>
 		</a>
-		<a href="{{url('admin/setting/request')}}" data-toggle="tooltip" data-placement="top" title="view request">
-		<div class="col-md-2 col-sm-4 col-xs-6 request_count box-shadow">
-	 		 <div class="icon-wrapper">
-				<i class="fa fa-terminal"></i>
-			</div>
-			<div class="count-details">
-				<span class="count_top">Requests</span>
-				<div class="count">{{$request_sent}}</div>
-			</div>
-		  
-<!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
-		</div>
-		</a>
 		<a href="{{url('admin/support')}}"  data-toggle="tooltip" data-placement="top" title="view support">
 		<div class="col-md-2 col-sm-4 col-xs-6 support_count box-shadow">
 	   		<div class="icon-wrapper">
@@ -68,6 +55,17 @@
 <!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
 		</div>
 		</a>
+		<div class="col-md-2 col-sm-4 col-xs-6 box-shadow closed_count">
+	 		 <div class="icon-wrapper">
+				<i class="fa fa-times"></i>
+			</div>
+			<div class="count-details">
+				<span class="count_top">Closed Support</span>
+				<div class="count">{{$support_request_close}}</div>
+			</div>
+		  
+<!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
+		</div>
 	</div>
 	
 	<div class="x_panel">
@@ -81,7 +79,7 @@
 
                 <div class="row x_title">
                   <div class="col-md-6">
-                    <h3>Request Activities <small>Demo only</small></h3>
+                    <h3>Request and Support Activities</h3>
                   </div>
                  
                 </div>
@@ -89,6 +87,10 @@
                 <div class="col-md-9 col-sm-9 col-xs-12">
                   <div id="placeholder33" style="height: 260px; display: none" class="demo-placeholder"></div>
                   <div style="width: 100%;">
+                   <div class="legend-wrapper">
+                   	<span class="legend-request"></span> <span class="legend-label">Request</span>
+                   	<span class="legend-support"></span> <span>Support</span>
+                   </div>
                     <div id="canvas_dahs" class="demo-placeholder" style="width: 100%; height:270px;"></div>
                   </div>
                 </div>

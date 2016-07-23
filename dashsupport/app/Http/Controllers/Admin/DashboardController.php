@@ -11,6 +11,7 @@ use App\DepartmentModel;
 use App\ServiceItemModel;
 use App\ClientRequest;
 use App\RecieveRequestModel;
+use DB;
 class DashboardController extends Controller
 {
 
@@ -20,8 +21,9 @@ class DashboardController extends Controller
 		$users = User::count();
 		$departments = DepartmentModel::count();
 		$services = ServiceItemModel::count();
-		$request_sent = ClientRequest::count();
+		//$request_sent = ClientRequest::count();
 		$support_request = RecieveRequestModel::count();
-		return view('admin.dashboard.index', compact('title','users', 'departments', 'services', 'request_sent', 'support_request'));
+		$support_request_close = DB::table('tbl_received_request')->where(['status' => 'Closed'])->count();
+		return view('admin.dashboard.index', compact('title','users', 'departments', 'services', 'support_request', 'support_request_close'));
 	}
 }

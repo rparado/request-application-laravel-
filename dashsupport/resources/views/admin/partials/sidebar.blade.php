@@ -47,7 +47,6 @@
                             <li><a href="{{url('admin/setting/user')}}">Users</a></li>
                             <li><a href="{{url('admin/setting/department')}}">Departments</a></li>
                             <li><a href="{{url('admin/setting/service')}}">Services</a></li>
-                            <li><a href="{{url('admin/request')}}">Requests</a></li>
                             <li><a href="{{url('admin/support')}}">Supports</a></li>
                         </ul>
                     </li>
