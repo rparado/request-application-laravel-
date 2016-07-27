@@ -3,6 +3,21 @@
 @section('title')
 @section('main')
 	<div class="count-wrapper-main clearfix">
+	
+		<a href="{{url('admin/support/duedate')}}" data-toggle="tooltip" data-placement="top" title="view departments">
+			<div class="col-md-2 col-sm-4 col-xs-6 due_count box-shadow">
+				<div class="icon-wrapper">
+					<i class="fa fa-calendar"></i>
+				</div>
+				<div class="count-details">
+					<span class="count_top">Due Today</span>
+					<div class="count">{{$request_due_today}}</div>
+				</div>
+
+	<!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
+			</div>
+		</a>
+	
 		<a href="{{url('admin/setting/user')}}" data-toggle="tooltip" data-placement="top" title="view users">
 			<div class="col-md-2 col-sm-4 col-xs-6 users_count box-shadow">
 				<div class="icon-wrapper">
@@ -16,19 +31,7 @@
 	<!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
 			</div>
 		</a>
-		<a href="{{url('admin/setting/department')}}" data-toggle="tooltip" data-placement="top" title="view departments">
-			<div class="col-md-2 col-sm-4 col-xs-6 department_count box-shadow">
-				<div class="icon-wrapper">
-					<i class="fa fa-users"></i>
-				</div>
-				<div class="count-details">
-					<span class="count_top">Departments</span>
-					<div class="count">{{$departments}}</div>
-				</div>
-
-	<!--		  	<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
-			</div>
-		</a>
+		
 		<a href="{{url('admin/setting/service')}}" data-toggle="tooltip" data-placement="top" title="view services">
 			<div class="col-md-2 col-sm-4 col-xs-6 services_count box-shadow">
 				<div class="icon-wrapper">

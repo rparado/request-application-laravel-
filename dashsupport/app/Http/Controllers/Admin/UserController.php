@@ -23,7 +23,7 @@ class UserController extends Controller
 	
     public function index()
 	{
-		$users = User::all();
+		$users = User::orderBy('user_type', 'ASC')->get();
 		return \View::make('admin/setting/user/userlist', compact('users'));
 		
 	}

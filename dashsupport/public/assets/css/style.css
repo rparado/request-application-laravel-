@@ -840,7 +840,7 @@ table.dataTable thead .sorting_desc:after {
 	width: 200px;
 }
 .users_count,
-.department_count,
+.due_count,
 .services_count,
 .support_count {
 	margin-right: 19px;
@@ -863,8 +863,8 @@ table.dataTable thead .sorting_desc:after {
 .users_count .icon-wrapper {
 	background: #ff8761;
 }
-.department_count .icon-wrapper {
-	background: #57bdde;
+.due_count .icon-wrapper {
+	background: #FFA726;
 }
 .services_count .icon-wrapper {
 	background: #ffc400;
@@ -895,6 +895,24 @@ table.dataTable thead .sorting_desc:after {
 .box-shadow .count_bottom {
 	font-size: 12px;
 	color: #57bdde;
+}
+.due_count .count_top {
+	color: #FFA726;
+}
+.users_count .count_top {
+	color: #ff8761;
+}
+.services_count .count_top {
+	color: #ffc400;
+}
+.request_count .count_top {
+	color: #b198dc;
+}
+.support_count .count_top {
+	color: #6dc7be;
+}
+.closed_count .count_top {
+	color: #b198dc;
 }
 .box-shadow .count {
 	font-size: 40px;

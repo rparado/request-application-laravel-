@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('client.layouts.app')
 {{-- Web site Title --}}
 @section('title') :: @parent @endsection
 @section('main')

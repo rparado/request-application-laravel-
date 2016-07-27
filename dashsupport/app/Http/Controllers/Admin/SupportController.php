@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\RecieveRequestModel;
 use App\User;
+use Carbon\Carbon;
 use Auth;
 use DB;
 use Session;
@@ -31,6 +32,7 @@ class SupportController extends Controller
 				'tbl_department.dept_name',
 				'tbl_service_item.service_item_name'
 				)
+			->where('tbl_received_request.status', 'Open')
             ->get();
 		return \View::make('admin/support/index', compact('support_requested'));
 	}
@@ -82,5 +84,27 @@ class SupportController extends Controller
 	public function destroy()
 	{
 		
+	}
+	public function getDueDates()
+	{
+		//$support_requested = RecieveRequestModel::all();
+		$support_requested = DB::table('tbl_received_request')
+			->join('users', 'tbl_received_request.user_id', '=', 'users.id')
+			->join('tbl_request', 'tbl_received_request.request_id', '=', 'tbl_request.id')
+			->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
+			->join('tbl_department', 'tbl_request.dept_id', '=', 'tbl_department.id')
+			//->join('tbl_service_item', 'tbl_request.service_item_id,', '=', 'tbl_service_item.id')
+			->select(
+				'tbl_received_request.*', 
+				'users.first_name', 
+				'users.last_name', 
+				'tbl_request.priority', 
+				'tbl_request.due_date', 
+				'tbl_department.dept_name',
+				'tbl_service_item.service_item_name'
+				)
+			->where('tbl_request.due_date', Carbon::now()->format('Y-m-d'))
+            ->get();
+		return \View::make('admin/support/due-date', compact('support_requested'));
 	}
 }

@@ -9,10 +9,6 @@
 			</div>
 			<div class="pull-right" style="line-height:46px;">
 				<a style="margin-bottom: 0;" href="{{url('/client/request/index')}}" class="btn btn-md btn-success"><i class="fa fa-plus" aria-hidden="true"></i> New</a>
-				
-				</td>
-				<a style="margin-bottom: 0;" class="btn btn-primary btn-cancel" href="{{ action('Client\RequestController@cancelled') }}"><i class="fa fa-close" aria-hidden="true"></i> Cancel</a>
-				<button type="button" class="btn btn-default">Cancelled</button>
 			</div>
 			
 		</div>

@@ -6,7 +6,7 @@
 	@if(count($support_requested) > 0 )
 	<div class="x_panel">
 		<div class="x_title">
-			<h3>Support Items</h3>
+			<h3>Support Due Today Items</h3>
 		</div>
 		<div class="x_content">
 			<table class="table table-striped table-bordered clearfix jambo_table bulk_action" id="support-table">
@@ -70,10 +70,10 @@
 	@else
 		<div class="x_panel">
 		<div class="x_title">
-			<h3>Support Items</h3>
+			<h3>Support Due Today Items</h3>
 		</div>
 		<div class="x_content" style="text-align: center">
-			<h2>No Open Support Items</h2>
+			<h2>You have 0 Due Date for Today</h2>
 		</div>
 	</div>
 	@endif

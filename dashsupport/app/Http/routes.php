@@ -25,6 +25,7 @@ Route::get('admin/setting/service', 'PagesController@service');
 Route::get('admin/setting/service/index', 'Admin\ServiceController@create');
 
 
+Route::get('client/chat', 'PagesController@chat');
 //client
 //Route::get('client/dashboard', ['as' => 'client/dashboard', 'uses' => 'PagesController@clientDashboard']);
 
@@ -45,16 +46,15 @@ Route::group(array('before' => 'auth', 'middleware' => 'web'), function(){
     Route::get('/', 'HomeController@index');
 	Route::get('admin/dashboard', 'PagesController@dashboard');
 	Route::get('client/dashboard', 'PagesController@clientDashboard');
-	Route::get('client/user/profileupdate', 'Client\ProfileUpdate@index');
-	Route::patch('client/user/profileupdate/{id}',[
-		'as' => 'client.user.profileupdate',
-		'uses' => 'Client\ProfileUpdate@update'
-	]);
+	
 });
     //Route::get('/', 'HomeController@index');
 /*===================Export===================================*/
 Route::get('admin/export/{type}', 'Admin\ExportController@downloadExcel');
 Route::post('admin/downloadCSV', 'Admin\ExportController@downloadCSV');
+
+
+Route::get('admin/support/duedate', 'Admin\SupportController@getDueDates');
 
 /*=================RESTFull Controllers======================*/
 Route::resource('admin/dashboard', 'Admin\DashboardController');
@@ -73,8 +73,12 @@ Route::get('client/request/index/{id}','Admin\ServiceController@getServiceItem')
 Route::get('redirect', 'SocialAuthController@redirect');
 Route::get('callback', 'SocialAuthController@callback');
 
-Route::get('home', function(){
-  return view('home');
-});
+Route::get('client/user/profileupdate', 'Client\ProfileUpdate@index');
+Route::patch('client/user/profileupdate/{id}',[
+	'as' => 'client.user.profileupdate',
+	'uses' => 'Client\ProfileUpdate@update'
+]);
+//Route::post('client/chat/sendmessage', 'chatController@sendMessage');
+//Route::post('client/chat/sendmessage', 'EmailController@send');
 
 
