@@ -18,8 +18,9 @@
 				</ul>
 			</div>
 			@endif
-			@if(Session::has('flash_message'))
-				<div class="alert alert-success fade in"><span class="glyphicon glyphicon-ok"></span><em> {{ Session::get('flash_message') }}</em><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+
+			@if(Session::has('mail_message'))
+				<div class="alert alert-success fade in"><span class="glyphicon glyphicon-ok"></span><em> {{ Session::get('mail_message') }}</em><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
 			</button></div>
 			@endif
 			{!! Form::open(['url' => 'client/request', 'method' => 'post', 'class' => 'clientrequestform row', 'id' => 'clientrequest']) !!}

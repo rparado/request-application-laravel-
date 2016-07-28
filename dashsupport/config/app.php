@@ -164,6 +164,8 @@ return [
 		\Schuppo\PasswordStrength\PasswordStrengthServiceProvider::class,
 		 DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 		Laravel\Socialite\SocialiteServiceProvider::class,
+		Vinkla\Pusher\PusherServiceProvider::class,
+		Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -215,6 +217,7 @@ return [
 		'Image' => Intervention\Image\Facades\Image::class,
 		'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
 		'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+		'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

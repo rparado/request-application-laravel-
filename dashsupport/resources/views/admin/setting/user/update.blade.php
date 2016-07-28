@@ -7,6 +7,10 @@
 		<h3>Update User</h3>
 	</div>
 	<div class="x_content">
+		@if(Session::has('user_updated'))
+			<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('user_updated') !!}</em>
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</div>
+		@endif
 		{!! Form::model($user, ['method' => 'PATCH', 'class' => 'row', 'route' => ['admin.setting.user.update', $user->id]]) !!}
 		<div class="form-group col-xs-12 col-md-6">
 			{!! Form::Label('User Number', 'User Number') !!}

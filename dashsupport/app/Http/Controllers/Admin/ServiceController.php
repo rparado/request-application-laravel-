@@ -82,7 +82,8 @@ class ServiceController extends Controller
 		$service_update = $request->all();
 		$service = ServiceItemModel::find($id);
 		$service->update($service_update);
-		return redirect('admin/setting/service');
+		Session::flash('service_message_update', 'Service item has been successfully updated');
+		return redirect()->back();
 	}
 	public function destroy($id)
 	{

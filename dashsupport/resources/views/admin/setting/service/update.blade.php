@@ -7,6 +7,10 @@
 		<h3>Update Service Item</h3>
 	</div>
 	<div class="x_content">
+		@if(Session::has('service_message_update'))
+			<div class="alert alert-success fade in"><span class="glyphicon glyphicon-ok"></span><em> {!! session('service_message_update') !!}</em>
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>
+		@endif
 		{!! Form::model($service, ['method' => 'PATCH', 'class' => 'row', 'route' => ['admin.setting.service.update', $service->id]]) !!}
 		<div class="form-group col-xs-12 col-md-6">
 			{!! Form::Label('service no', 'Service Item No') !!}

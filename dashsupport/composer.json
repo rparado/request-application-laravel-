@@ -14,7 +14,9 @@
         "intervention/image": "^2.3",
         "schuppo/password-strength": "~1.5.",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "vinkla/pusher": "^2.4",
+        "barryvdh/laravel-debugbar": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

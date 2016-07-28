@@ -13,6 +13,7 @@ use App\ServiceItemModel;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 use App\User;
 use Session;
 use Carbon\Carbon;
@@ -143,8 +144,34 @@ class RequestController extends Controller
 				$new_request->user_id = Auth::id();
 				$new_request->status = 'Open';
 				$request->request()->save($new_request);
+				
+				$user_id = Auth::user()->id;
+				//$user = User::find($user_id)->toArray();
+				
+				$request_number = $request->request_no;
+				
+				
+				$users = DB::table('users')
+						->join('tbl_request', 'users.id', '=', 'tbl_request.user_id')
+						->select('users.first_name', 'users.last_name', 'users.email','tbl_request.request_no')
+						->where('users.id', $user_id)
+						->get();
+				foreach($users as $user) {
+//				Mail::send('client.emails.mail', $user, function($message) use ($user) {
+//					$message->to($user['email']);
+//					$message->subject('Request Created');
+//				});
+				
+					 Mail::send('client.emails.mail', ['user' => $user], function ($message) use ($user) {
+
+						$message->to($user->email)->subject('Request Created');
+					});
+				}
+				//dd('Mail sent');
 			}
+			
 			Session::flash('flash_message', 'Request successfully submitted');
+			Session::flash('mail_message', $request_number . ' has been created and is on queue right now.');
 		    return redirect()->back();
 		}
 		
@@ -167,12 +194,6 @@ class RequestController extends Controller
 	}
 	public function destroy($id)
 	{
-	}
-	public function cancelled($id)
-	{
-		dd($id);
-		return \View::make('client/request');
-		
 	}
 
 }

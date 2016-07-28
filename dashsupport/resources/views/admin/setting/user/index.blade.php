@@ -21,7 +21,8 @@
 			</div>
 			@endif
 			@if(Session::has('flash_message'))
-				<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+				<div class="alert alert-success fade in"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em>
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>
 			@endif
 			{!! Form::open(['url' => 'admin/setting/user', 'method' => 'post', 'class' => 'userform row','files'=>true]) !!}
 				<div class="form-group col-xs-12 col-md-6">

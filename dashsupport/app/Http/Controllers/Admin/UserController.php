@@ -119,7 +119,8 @@ class UserController extends Controller
 		$userUpdate = $request->all();
 		$user = User::find($id);
 		$user->update($userUpdate);
-		return redirect('admin/setting/user');
+		Session::flash('user_updated','User successfully updated.');
+		return redirect()->back();
 	}
 	public function destroy($id)
 	{

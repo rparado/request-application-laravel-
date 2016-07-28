@@ -205,7 +205,7 @@
 				ticks: 8,
 				tickColor: "rgba(51, 51, 51, 0.06)",
 			},
-			tooltip: true
+			tooltip: false
 		});
 
 		function gd(year, month, day) {

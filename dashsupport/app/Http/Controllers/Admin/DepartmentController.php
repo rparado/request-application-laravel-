@@ -74,7 +74,8 @@ class DepartmentController extends Controller
 		$department_update = $request->all();
 		$department = DepartmentModel::find($id);
 		$department->update($department_update);
-		return redirect('admin/setting/department');
+		Session::flash('dept_mesage_update', 'Department item has been successfully updated');
+		return redirect()->back();
 	}
 	public function destroy($id)
 	{

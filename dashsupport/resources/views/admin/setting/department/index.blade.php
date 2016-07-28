@@ -22,8 +22,8 @@
 			</div>
 			@endif
 			@if(Session::has('dept_mesage'))
-				<div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('dept_mesage') !!}</em>
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</div>
+				<div class="alert alert-success fade in"><span class="glyphicon glyphicon-ok"></span><em> {!! session('dept_mesage') !!}</em>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>
 			@endif
 			{!! Form::open(['url' => 'admin/setting/department', 'method' => 'post', 'class' => 'departmentform row']) !!}
 				<div class="form-group col-xs-12 col-md-6">

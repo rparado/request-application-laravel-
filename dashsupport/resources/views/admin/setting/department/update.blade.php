@@ -7,6 +7,10 @@
 		<h3>Update Department</h3>
 	</div>
 	<div class="x_content">
+		@if(Session::has('dept_mesage_update'))
+			<div class="alert alert-success fade in"><span class="glyphicon glyphicon-ok"></span><em> {!! session('dept_mesage_update') !!}</em>
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</div>
+		@endif
 		{!! Form::model($department, ['method' => 'PATCH', 'class' => 'row', 'route' => ['admin.setting.department.update', $department->id]]) !!}
 		<div class="form-group col-xs-12 col-md-6">
 			{!! Form::Label('Department Number', 'User Number') !!}

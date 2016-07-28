@@ -81,4 +81,12 @@ Route::patch('client/user/profileupdate/{id}',[
 //Route::post('client/chat/sendmessage', 'chatController@sendMessage');
 //Route::post('client/chat/sendmessage', 'EmailController@send');
 
+Route::get('/bridge', function() {
+    $pusher = App::make('pusher');
 
+    $pusher->trigger( 'test-channel',
+                      'test-event', 
+                      array('text' => 'Preparing the Pusher Laracon.eu workshop!'));
+
+    return view('welcome');
+});

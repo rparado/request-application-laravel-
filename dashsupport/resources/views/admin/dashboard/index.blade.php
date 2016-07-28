@@ -4,7 +4,7 @@
 @section('main')
 	<div class="count-wrapper-main clearfix">
 	
-		<a href="{{url('admin/support/duedate')}}" data-toggle="tooltip" data-placement="top" title="view departments">
+		<a href="{{url('admin/support/duedate')}}" data-toggle="tooltip" data-placement="top" title="view due date">
 			<div class="col-md-2 col-sm-4 col-xs-6 due_count box-shadow">
 				<div class="icon-wrapper">
 					<i class="fa fa-calendar"></i>
