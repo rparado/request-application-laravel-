@@ -2,81 +2,81 @@
 {{-- Web site Title --}}
 @section('title') :: @parent @endsection
 @section('main')
-	<div class="row">
-		<div class="col-xs-12 col-md-6">
-			<div class="x_panel">
-				<div class="x_title">
-					<h2>Request Summary</h2>
-					
-				</div>
-				<div class="x_content">
-					
-					<a href="{{url('admin/support')}}"  data-toggle="tooltip" data-placement="top" title="view support" class="animated flipInY">
-						<div class="col-md-2 col-sm-4 col-xs-6 support_count box-shadow">
-							<div class="icon-wrapper">
-								<i class="fa fa-life-ring"></i>
-							</div>
-							<div class="count-details">
-								<span class="count_top">Submitted</span>
-								<div class="count">{{$request_submitted}}</div>
-							</div>
-						</div>
-					</a>
-					
-					<div class="animated flipInY col-xs-12 col-md-6">
-						<div class="tile-stats">
-							<div class="count">{{}}</div>
-							<h3>Open</h3>
-						</div>
-					</div>
-					<div class="animated flipInY col-xs-12 col-md-6">
-						<div class="tile-stats">
-							<div class="count">179</div>
-							<h3>Pending</h3>
-						</div>
-					</div>
-					<div class="animated flipInY col-xs-12 col-md-6">
-						<div class="tile-stats">
-							<div class="count">179</div>
-							<h3>Pending</h3>
-						</div>
-					</div>
-					<div class="animated flipInY col-xs-12 col-md-6">
-						<div class="tile-stats">
-							<div class="count">179</div>
-							<h3>Pending</h3>
-						</div>
-					</div>
-					<div class="animated flipInY col-xs-12 col-md-6">
-						<div class="tile-stats">
-							<div class="count">179</div>
-							<h3>Pending</h3>
-						</div>
-					</div>
-				</div>
+<div class="count-wrapper-main clearfix">
+
+	<a href="{{url('client/request/submitted')}}" data-toggle="tooltip" data-placement="top" title="view request submitted">
+		<div class="col-md-2 col-sm-4 col-xs-6 support_count  box-shadow">
+			<div class="icon-wrapper">
+				<i class="fa fa-share"></i>
+			</div>
+			<div class="count-details">
+				<span class="count_top">Submitted</span>
+				<div class="count">{{$request_submitted}}</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-md-6">
-			<div class="x_panel">
-				<div class="x_title">
-					<h2>Orders</h2>
-				</div>
-				<div class="x_content">
+	</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Total Resolved Request</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="col-md-9 col-sm-12 col-xs-12">
+                    <div class="demo-container" style="height:280px">
+                        <div id="placeholder33x" class="demo-placeholder"></div>
+                    </div>
+                </div>
 
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-md-12">
-			<div class="x_panel">
-				<div class="x_title">
-					<h2>Summary of charges</h2>
-				</div>
-				<div class="x_content">
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div>
+                        <div class="x_title">
+                            <h2>Top Support Persons</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <ul class="list-unstyled top_profiles scroll-view">
+                            <li class="media event">
+                                <a class="pull-left border-aero profile_thumb">
+                                    <i class="fa fa-user aero"></i>
+                                </a>
+                                <div class="media-body">
+                                    <a class="title" href="#">Mr. Ian Cordero</a>
+                                    <p>IT Operations </p>
+                                    <p> <small>40 Supports Resolved</small>
+                                    </p>
+                                </div>
+                            </li>
+                           <li class="media event">
+                                <a class="pull-left border-aero profile_thumb">
+                                    <i class="fa fa-user aero"></i>
+                                </a>
+                                <div class="media-body">
+                                    <a class="title" href="#">Ms. Jenelyn Contillo</a>
+                                    <p>IT Operations </p>
+                                    <p> <small>30 Supports Resolved</small>
+                                    </p>
+                                </div>
+                            </li>
+                           <li class="media event">
+                                <a class="pull-left border-aero profile_thumb">
+                                    <i class="fa fa-user aero"></i>
+                                </a>
+                                <div class="media-body">
+                                    <a class="title" href="#">Ms. Mildred Evano</a>
+                                    <p>IT Operations </p>
+                                    <p> <small>50 Supports Resolved</small>
+                                    </p>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
 
-				</div>
-			</div>
-		</div>
-	</div>
-	
-
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

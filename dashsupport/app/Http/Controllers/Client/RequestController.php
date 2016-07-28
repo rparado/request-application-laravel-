@@ -195,5 +195,18 @@ class RequestController extends Controller
 	public function destroy($id)
 	{
 	}
+	public function getSubmittedRequests()
+	{
+		$id = Auth::user()->id;
+		//$submitted_requests = ClientRequest::where(['status' => 'Submitted', 'user_id' => $id])->get();
+		
+		$submitted_requests = DB::table('tbl_request')
+							->join('tbl_department', 'tbl_request.dept_id', '=', 'tbl_department.id')	
+							->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
+							->select('tbl_request.*', 'tbl_department.dept_name', 'tbl_service_item.service_item_name')
+							->where(['status' => 'Submitted', 'user_id' => $id])
+							->get();
+		return \View::make('client/request/submitted', compact('submitted_requests'));				
+	}
 
 }

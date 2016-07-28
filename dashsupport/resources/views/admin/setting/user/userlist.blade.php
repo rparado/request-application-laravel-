@@ -8,8 +8,15 @@
 	
 	@if(count($users) > 0 )
 	<div class="x_panel">
-		<div class="x_title">
-			<h3>Users Data</h3>
+		<div class="x_title clearfix">
+			
+			<div class="pull-left">
+				<h3>Users Data</h3>
+			</div>
+			
+			<div class="pull-right" style="line-height:46px;">
+				<a style="margin-bottom: 0;" href="{{url('/admin/setting/user/index')}}" class="btn btn-md btn-success"><i class="fa fa-plus" aria-hidden="true"></i> New</a>
+			</div>
 		</div>
 		<div class="x_content">
 			<table class="table table-striped table-bordered clearfix jambo_table bulk_action" id="users-table">

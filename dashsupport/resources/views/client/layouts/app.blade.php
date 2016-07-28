@@ -68,6 +68,17 @@
 		<script src="{{asset('assets/js/jquery.dataTables.js')}}"></script>
 		<script src="{{asset('assets/js/icheck.min.js')}}"></script>
 		<script src="{{asset('assets/js/summernote.js')}}"></script>
+		<script src="{{asset('assets/js/Chart.min.js')}}"></script>
+		<script src="{{asset('assets/js/nprogress.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.time.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.stack.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.resize.js')}}"></script>
+		<script src="{{asset('assets/js/curvedLines.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.orderBars.js')}}"></script>
+		<script src="{{asset('assets/js/jquery.flot.spline.js')}}"></script>
+		<script src="{{asset('assets/js/date.js')}}"></script>
+		<script src="{{asset('assets/js/client-graph.js')}}"></script>
 		<script src="{{asset('assets/js/script.js')}}"></script>
 	</body>
 </html>
