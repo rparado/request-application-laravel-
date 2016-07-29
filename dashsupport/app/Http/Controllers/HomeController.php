@@ -11,6 +11,7 @@ use App\ClientRequest;
 use App\User;
 use App\DepartmentModel;
 use App\ServiceItemModel;
+use App\RecieveRequestModel;
 use Auth;
 class HomeController extends Controller
 {
@@ -31,14 +32,14 @@ class HomeController extends Controller
      */
     public function index()
     {	
-		if (Auth::check()) {	
+		/*if (Auth::check()) {	
 			if(Auth::user()->user_type == 'Admin') {
 				return redirect()->intended('/admin/dashboard');
 			}
 		}
 		$id = Auth::user()->id;
 		$request_submitted = ClientRequest::where(['status' => 'Submitted', 'user_id' => $id])->count();
-		//$request_open = ClientRequest::where(['status' => 'Open', 'user_id' => $id])->count();
-		return \View::make('client/dashboard/index', compact('request_submitted'));
+		$support = RecieveRequestModel::where(['status' => 'Closed', 'user_id' => $id])->count();
+		return \View::make('client/dashboard/index', compact('request_submitted', 'cancelled_request', 'support')); */
     }
 }

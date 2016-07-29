@@ -15,6 +15,50 @@
 			</div>
 		</div>
 	</a>
+	<a href="{{url('client/request/cancelled')}}" data-toggle="tooltip" data-placement="top" title="view cancelled request">
+		<div class="col-md-2 col-sm-4 col-xs-6 users_count  box-shadow">
+			<div class="icon-wrapper">
+				<i class="fa fa-times"></i>
+			</div>
+			<div class="count-details">
+				<span class="count_top">Request Cancel</span>
+				<div class="count">{{$request_cancelled}}</div>
+			</div>
+		</div>
+	</a>
+	<a href="{{url('client/request/submitted')}}" data-toggle="tooltip" data-placement="top" title="view closed support">
+		<div class="col-md-2 col-sm-4 col-xs-6 users_count  box-shadow">
+			<div class="icon-wrapper">
+				<i class="fa fa-times"></i>
+			</div>
+			<div class="count-details">
+				<span class="count_top">Closed Support</span>
+				<div class="count">{{$support_closed}}</div>
+			</div>
+		</div>
+	</a>
+	<a href="{{url('client/request/submitted')}}" data-toggle="tooltip" data-placement="top" title="view In Prorgess support">
+		<div class="col-md-2 col-sm-4 col-xs-6 due_count  box-shadow">
+			<div class="icon-wrapper">
+				<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+			</div>
+			<div class="count-details">
+				<span class="count_top">IP Support</span>
+				<div class="count">{{$support_ip}}</div>
+			</div>
+		</div>
+	</a>
+	<a href="{{url('client/request/submitted')}}" data-toggle="tooltip" data-placement="top" title="view On Hold support">
+		<div class="col-md-2 col-sm-4 col-xs-6 closed_count  box-shadow">
+			<div class="icon-wrapper">
+				<i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+			</div>
+			<div class="count-details">
+				<span class="count_top">Hold Support</span>
+				<div class="count">{{$support_onhold}}</div>
+			</div>
+		</div>
+	</a>
 </div>
 <div class="row">
     <div class="col-md-12">

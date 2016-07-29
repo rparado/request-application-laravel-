@@ -32,6 +32,7 @@ Route::get('client/request', 'PagesController@clientRequest');
 Route::get('client/request/index', 'Client\RequestController@create');
 Route::get('client/request', 'Client\RequestController@cancelled');
 Route::get('client/request/submitted', 'Client\RequestController@getSubmittedRequests');
+Route::get('client/request/cancelled', 'Client\RequestController@getCancelledRequests');
 //Route::get('client/request/{id}', array('as' => 'cancel', 'uses' => 'Client\RequestController@cancel'));
 /*===================login Routes=============================*/
 //Route::controllers([
@@ -41,7 +42,7 @@ Route::get('client/request/submitted', 'Client\RequestController@getSubmittedReq
 
 Route::group(array('before' => 'auth', 'middleware' => 'web'), function(){
 	Route::auth();
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'Client\DashboardController@index');
 	Route::get('admin/dashboard', 'PagesController@dashboard');
 	Route::get('client/dashboard', 'PagesController@clientDashboard');
 	

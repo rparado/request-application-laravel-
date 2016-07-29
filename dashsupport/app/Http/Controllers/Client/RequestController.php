@@ -157,13 +157,7 @@ class RequestController extends Controller
 						->where('users.id', $user_id)
 						->get();
 				foreach($users as $user) {
-//				Mail::send('client.emails.mail', $user, function($message) use ($user) {
-//					$message->to($user['email']);
-//					$message->subject('Request Created');
-//				});
-				
 					 Mail::send('client.emails.mail', ['user' => $user], function ($message) use ($user) {
-
 						$message->to($user->email)->subject('Request Created');
 					});
 				}
@@ -198,8 +192,6 @@ class RequestController extends Controller
 	public function getSubmittedRequests()
 	{
 		$id = Auth::user()->id;
-		//$submitted_requests = ClientRequest::where(['status' => 'Submitted', 'user_id' => $id])->get();
-		
 		$submitted_requests = DB::table('tbl_request')
 							->join('tbl_department', 'tbl_request.dept_id', '=', 'tbl_department.id')	
 							->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
@@ -208,5 +200,15 @@ class RequestController extends Controller
 							->get();
 		return \View::make('client/request/submitted', compact('submitted_requests'));				
 	}
-
+	public function getCancelledRequests()
+	{
+		$id = Auth::user()->id;
+		$cancelled_requests = DB::table('tbl_request')
+							->join('tbl_department', 'tbl_request.dept_id', '=', 'tbl_department.id')	
+							->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
+							->select('tbl_request.*', 'tbl_department.dept_name', 'tbl_service_item.service_item_name')
+							->where(['status' => 'Cancelled', 'user_id' => $id])
+							->get();
+		return \View::make('client/request/cancelled', compact('cancelled_requests'));				
+	}
 }
