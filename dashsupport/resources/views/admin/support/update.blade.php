@@ -13,6 +13,10 @@
 		@endif
 			{!! Form::model($request , ['method' => 'PATCH', 'class' => 'row', 'route' => ['admin.support.update', $request->id]]) !!}
 				<div class="form-group col-xs-12 col-md-6">
+					{!! Form::Label('support_number', 'Support Number') !!}
+					{!! Form::text('received_no', null, array('class' => 'form-control', 'readonly', 'id' => 'request-due-date')) !!}
+				</div>
+				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('date_received', 'Date Received') !!}
 					{!! Form::text('date_received', null, array('class' => 'form-control', 'readonly', 'id' => 'request-due-date')) !!}
 				</div>
@@ -40,10 +44,6 @@
 					{!! Form::text('department', $support_request->dept_name, array('class' => 'form-control', 'readonly')) !!}
 				</div>
 				<div class="form-group col-xs-12 col-md-6">
-					{!! Form::Label('description', 'Description') !!}
-					{!! Form::textarea('description',$support_request->description, array('class' => 'form-control', 'readonly', 'cols' => 10, 'rows' => '5')) !!}
-				</div>
-				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('status', 'Status') !!}
 					{{ Form::select('status', [
 					   'Open' => 'Open',
@@ -53,6 +53,11 @@
 					   ], null, array('class' => 'form-control')) 
 					}}
 				</div>
+				<div class="form-group col-xs-12 col-md-6">
+					{!! Form::Label('description', 'Description') !!}
+					{!! Form::textarea('description',$support_request->description, array('class' => 'form-control', 'readonly', 'cols' => 10, 'rows' => '5')) !!}
+				</div>
+				
 				<div class="form-group col-xs-12 col-md-12">
 					{!! Form::Label('remarks', 'Remarks') !!}
 					{!! Form::textarea('remarks',null, array('class' => 'form-control desc-field')) !!}

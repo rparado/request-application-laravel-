@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Auth;
 use DB;
 use Session;
+use Mail;
 class SupportController extends Controller
 {
     public function index()
@@ -76,10 +77,30 @@ class SupportController extends Controller
 	public function update(Request $request, $id)
 	{
 		$supportUpdate = $request->all();
-		//dd($supportUpdate);
 		$support = RecieveRequestModel::find($id);
 		$support->update($supportUpdate);
-		Session::flash('support_update', 'Support Request has been updated!');
+		
+		/*//for mail setup
+		$request_number = $support->received_no;
+		$users = DB::table('tbl_received_request')
+				->join('users',  'tbl_received_request.user_id', '=', 'users.id')
+				->select(
+					'users.first_name', 
+					'users.last_name', 
+					'users.email',
+					'tbl_received_request.received_no'
+				)
+				->where('tbl_received_request.user_id')
+				->get();
+		
+		foreach($users as $user) {
+			dd($user);
+			 Mail::send('client.emails.supportmail', ['user' => $user], function ($message) use ($user) {
+				$message->to($user->email)->subject('Support response to your request');
+			});
+		}
+		*/
+		Session::flash('support_update', 'Support number ' . $support->received_no .' has been updated!');
 		return redirect()->back();
 	}
 	public function destroy()
