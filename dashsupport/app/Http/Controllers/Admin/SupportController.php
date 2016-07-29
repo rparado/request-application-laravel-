@@ -32,7 +32,8 @@ class SupportController extends Controller
 				'tbl_department.dept_name',
 				'tbl_service_item.service_item_name'
 				)
-			->where('tbl_received_request.status', 'Open')
+			//->where('tbl_received_request.status', 'Open')
+			->orderBy('received_no', 'ASC')
             ->get();
 		return \View::make('admin/support/index', compact('support_requested'));
 	}
@@ -106,5 +107,71 @@ class SupportController extends Controller
 			->where('tbl_request.due_date', Carbon::now()->format('Y-m-d'))
             ->get();
 		return \View::make('admin/support/due-date', compact('support_requested'));
+	}
+	public function getClosedSupportItems()
+	{
+		$id = Auth::user()->id;
+		$support_closed = DB::table('tbl_received_request')
+			->join('users', 'tbl_received_request.user_id', '=', 'users.id')
+			->join('tbl_request', 'tbl_received_request.request_id', '=', 'tbl_request.id')
+			->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
+			->join('tbl_department', 'tbl_request.dept_id', '=', 'tbl_department.id')
+			//->join('tbl_service_item', 'tbl_request.service_item_id,', '=', 'tbl_service_item.id')
+			->select(
+				'tbl_received_request.*', 
+				'users.first_name', 
+				'users.last_name', 
+				'tbl_request.priority', 
+				'tbl_request.due_date', 
+				'tbl_department.dept_name',
+				'tbl_service_item.service_item_name'
+				)
+			->where(['tbl_received_request.status' => 'Closed', 'tbl_received_request.user_id' => $id])
+            ->get();
+		return \View::make('client/support/closed', compact('support_closed'));
+	}
+	public function getInProgressSupportItems()
+	{
+		$id = Auth::user()->id;
+		$support_inprogress = DB::table('tbl_received_request')
+			->join('users', 'tbl_received_request.user_id', '=', 'users.id')
+			->join('tbl_request', 'tbl_received_request.request_id', '=', 'tbl_request.id')
+			->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
+			->join('tbl_department', 'tbl_request.dept_id', '=', 'tbl_department.id')
+			//->join('tbl_service_item', 'tbl_request.service_item_id,', '=', 'tbl_service_item.id')
+			->select(
+				'tbl_received_request.*', 
+				'users.first_name', 
+				'users.last_name', 
+				'tbl_request.priority', 
+				'tbl_request.due_date', 
+				'tbl_department.dept_name',
+				'tbl_service_item.service_item_name'
+				)
+			->where(['tbl_received_request.status' => 'In progress', 'tbl_received_request.user_id' => $id])
+            ->get();
+		return \View::make('client/support/inprogress', compact('support_inprogress'));
+	}
+	public function getOnHoldSupportItems()
+	{
+		$id = Auth::user()->id;
+		$support_onhold = DB::table('tbl_received_request')
+			->join('users', 'tbl_received_request.user_id', '=', 'users.id')
+			->join('tbl_request', 'tbl_received_request.request_id', '=', 'tbl_request.id')
+			->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
+			->join('tbl_department', 'tbl_request.dept_id', '=', 'tbl_department.id')
+			//->join('tbl_service_item', 'tbl_request.service_item_id,', '=', 'tbl_service_item.id')
+			->select(
+				'tbl_received_request.*', 
+				'users.first_name', 
+				'users.last_name', 
+				'tbl_request.priority', 
+				'tbl_request.due_date', 
+				'tbl_department.dept_name',
+				'tbl_service_item.service_item_name'
+				)
+			->where(['tbl_received_request.status' => 'On hold', 'tbl_received_request.user_id' => $id])
+            ->get();
+		return \View::make('client/support/onhold', compact('support_onhold'));
 	}
 }

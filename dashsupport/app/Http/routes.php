@@ -33,6 +33,9 @@ Route::get('client/request/index', 'Client\RequestController@create');
 Route::get('client/request', 'Client\RequestController@cancelled');
 Route::get('client/request/submitted', 'Client\RequestController@getSubmittedRequests');
 Route::get('client/request/cancelled', 'Client\RequestController@getCancelledRequests');
+Route::get('client/support/closed', 'Admin\SupportController@getClosedSupportItems');
+Route::get('client/support/inprogress', 'Admin\SupportController@getInProgressSupportItems');
+Route::get('client/support/onhold', 'Admin\SupportController@getOnHoldSupportItems');
 //Route::get('client/request/{id}', array('as' => 'cancel', 'uses' => 'Client\RequestController@cancel'));
 /*===================login Routes=============================*/
 //Route::controllers([

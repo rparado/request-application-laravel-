@@ -18,7 +18,7 @@
 	<a href="{{url('client/request/cancelled')}}" data-toggle="tooltip" data-placement="top" title="view cancelled request">
 		<div class="col-md-2 col-sm-4 col-xs-6 users_count  box-shadow">
 			<div class="icon-wrapper">
-				<i class="fa fa-times"></i>
+				<i class="fa fa-user-times"></i>
 			</div>
 			<div class="count-details">
 				<span class="count_top">Request Cancel</span>
@@ -26,10 +26,10 @@
 			</div>
 		</div>
 	</a>
-	<a href="{{url('client/request/submitted')}}" data-toggle="tooltip" data-placement="top" title="view closed support">
-		<div class="col-md-2 col-sm-4 col-xs-6 users_count  box-shadow">
+	<a href="{{url('client/support/closed')}}" data-toggle="tooltip" data-placement="top" title="view closed support">
+		<div class="col-md-2 col-sm-4 col-xs-6 services_count  box-shadow">
 			<div class="icon-wrapper">
-				<i class="fa fa-times"></i>
+				<i class="fa fa-eye-slash" aria-hidden="true"></i>
 			</div>
 			<div class="count-details">
 				<span class="count_top">Closed Support</span>
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	</a>
-	<a href="{{url('client/request/submitted')}}" data-toggle="tooltip" data-placement="top" title="view In Prorgess support">
+	<a href="{{url('client/support/inprogress')}}" data-toggle="tooltip" data-placement="top" title="view In Prorgess support">
 		<div class="col-md-2 col-sm-4 col-xs-6 due_count  box-shadow">
 			<div class="icon-wrapper">
 				<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 	</a>
-	<a href="{{url('client/request/submitted')}}" data-toggle="tooltip" data-placement="top" title="view On Hold support">
+	<a href="{{url('client/support/onhold')}}" data-toggle="tooltip" data-placement="top" title="view On Hold support">
 		<div class="col-md-2 col-sm-4 col-xs-6 closed_count  box-shadow">
 			<div class="icon-wrapper">
 				<i class="fa fa-hand-paper-o" aria-hidden="true"></i>
