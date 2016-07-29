@@ -139,4 +139,9 @@ class UserController extends Controller
             return 1;
         }
 	}
+	public function getUserPhoto()
+	{
+		$users = User::orderBy('user_type', 'ASC')->get();
+		return \View::make('/', compact('users'));
+	}
 }

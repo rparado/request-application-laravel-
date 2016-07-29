@@ -85,13 +85,15 @@ var options = {
 	max: chartMaxDate
   }
 };
-var plot = $.plot($("#placeholder33x"), [{
-  label: "Resolved Request",
-  data: d1,
-  lines: {
-	fillColor: "rgba(150, 202, 89, 0.12)"
-  }, //#96CA59 rgba(150, 202, 89, 0.42)
-  points: {
-	fillColor: "#fff"
-  }
-}], options);
+if($('#placeholder33x').length > 0) {
+	var plot = $.plot($("#placeholder33x"), [{
+	  label: "Resolved Request",
+	  data: d1,
+	  lines: {
+		fillColor: "rgba(150, 202, 89, 0.12)"
+	  }, //#96CA59 rgba(150, 202, 89, 0.42)
+	  points: {
+		fillColor: "#fff"
+	  }
+	}], options);
+}

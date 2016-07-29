@@ -10,7 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::group(array('before' => 'auth', 'middleware' => 'web'), function(){
+	Route::auth();
+    Route::get('/', 'Client\DashboardController@index');
+	Route::get('admin/dashboard', 'PagesController@dashboard');
+	Route::get('client/dashboard', 'PagesController@clientDashboard');
+	
+});
 /*====================Admin Dashboard========================*/
 //Route::get('/', 'Admin\DashboardController@index');
 
@@ -43,13 +49,7 @@ Route::get('client/support/onhold', 'Admin\SupportController@getOnHoldSupportIte
 //    'password' => 'Auth\PasswordController',
 //]);
 
-Route::group(array('before' => 'auth', 'middleware' => 'web'), function(){
-	Route::auth();
-    Route::get('/', 'Client\DashboardController@index');
-	Route::get('admin/dashboard', 'PagesController@dashboard');
-	Route::get('client/dashboard', 'PagesController@clientDashboard');
-	
-});
+
     //Route::get('/', 'HomeController@index');
 /*===================Export===================================*/
 Route::get('admin/export/{type}', 'Admin\ExportController@downloadExcel');
