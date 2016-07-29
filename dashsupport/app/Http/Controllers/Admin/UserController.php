@@ -41,8 +41,8 @@ class UserController extends Controller
 		$this->validate($request, [
 			'user_number' => 'required',
 			'photo' => 'max:300|mimes:jpg,png,gif',
-			'first_name' => 'required|alpha_dash',
-			'last_name' => 'required|alpha_dash',
+			'first_name' => 'required',
+			'last_name' => 'required',
 			'email' => 'required|max:64|min:3|email|unique:users',
 			'password' => 'required',
 			'password_confirm' => 'required',
