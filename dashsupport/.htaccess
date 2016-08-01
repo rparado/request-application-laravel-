@@ -1,0 +1,3 @@
+Header add Access-Control-Allow-Origin "http://ds1.esy.es/"
+Header add Access-Control-Allow-Origin "http://ds1.esy.es/"
+Header add Access-Control-Allow-Origin "http://ds1.esy.es/"

@@ -94,6 +94,7 @@ class ServiceController extends Controller
 	public function getServiceItem(Request $request, $id)
 	{
 		//$data = ServiceItemModel::find($id)->select('rate')->get()->toArray();
+		
 		$data = ServiceItemModel::all();
 		echo json_encode($data);
 	}

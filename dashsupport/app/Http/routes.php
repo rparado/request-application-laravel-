@@ -10,12 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+header('Access-Control-Allow-Origin: *');
+header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
 Route::group(array('before' => 'auth', 'middleware' => 'web'), function(){
 	Route::auth();
     Route::get('/', 'Client\DashboardController@index');
 	Route::get('admin/dashboard', 'PagesController@dashboard');
 	Route::get('client/dashboard', 'PagesController@clientDashboard');
-	
+	Route::controllers([
+	   'auth' => 'Auth\AuthController',
+	   'password' => 'Auth\PasswordController',
+	]);
 });
 /*====================Admin Dashboard========================*/
 //Route::get('/', 'Admin\DashboardController@index');
@@ -44,10 +49,7 @@ Route::get('client/support/inprogress', 'Admin\SupportController@getInProgressSu
 Route::get('client/support/onhold', 'Admin\SupportController@getOnHoldSupportItems');
 //Route::get('client/request/{id}', array('as' => 'cancel', 'uses' => 'Client\RequestController@cancel'));
 /*===================login Routes=============================*/
-//Route::controllers([
-//    'auth' => 'Auth\AuthController',
-//    'password' => 'Auth\PasswordController',
-//]);
+
 
 
     //Route::get('/', 'HomeController@index');
@@ -66,7 +68,10 @@ Route::resource('admin/support', 'Admin\SupportController');
 Route::resource('client/dashboard', 'Client\DashboardController');
 Route::resource('client/request', 'Client\RequestController');
 /*================AJAX POST Controllers=============================*/
-Route::get('client/request/index/{id}','Admin\ServiceController@getServiceItem');
+Route::group(['middleware' => 'cors'], function() {
+	Route::post('client/request/index/{id}','Admin\ServiceController@getServiceItem');
+});
+
 //Route::post('client/request/index/{id}','Admin\DepartmentController@geDepartmentItem');
 Route::get('redirect', 'SocialAuthController@redirect');
 Route::get('callback', 'SocialAuthController@callback');

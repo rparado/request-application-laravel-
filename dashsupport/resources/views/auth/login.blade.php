@@ -30,7 +30,14 @@
                    			{!! Form::label('password', 'Password') !!}
                    			{!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'Enter password')) !!}
                    		</div>
-                   		<div class="col-xs-12">
+                   		<div class="form-group col-md-6 col-xs-12">
+                             <input type="checkbox" name="remember"> Remember Me
+                        </div>
+
+                        <div class="form-group col-xs-12 col-md-6">
+                               <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                        </div>
+                   		<div class="col-xs-12 col-md-12">
                    		<a href="redirect" class="btn btn-primary">Login with facebook</a>
                    			{!! Form::submit('Login', ['class' => 'btn btn-success']) !!}
 						</div>

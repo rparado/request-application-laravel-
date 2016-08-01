@@ -164,7 +164,7 @@ class RequestController extends Controller
 				//dd('Mail sent');
 			}
 			
-			Session::flash('flash_message', 'Request successfully submitted');
+			//Session::flash('flash_message', 'Request successfully submitted');
 			Session::flash('mail_message', $request_number . ' has been created and is on queue right now.');
 		    return redirect()->back();
 		}

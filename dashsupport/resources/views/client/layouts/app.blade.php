@@ -5,12 +5,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="csrf_token" content="{{ csrf_token() }}">
+		<link rel="shortcut icon" type="image/png" href="{{asset('assets/images/user.png')}}"/>
+		<link rel="shortcut icon" type="image/png" href="{{asset('assets/images/user.png')}}"/>
 		<title>@yield('title') Client @show</title>
 		<link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/summernote.css')}}" />
 		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}" />
+		
 	</head>
 	<body class="nav-md">
 		<div class="container body">

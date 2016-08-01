@@ -109,8 +109,10 @@
 			$('#service_item_id').on('change', function(){
 				var id = $(this).val();
 				$.ajax({
-						method: 'GET',
+						method: 'POST',
 						url: '/client/request/index/' + id,
+						crossOrigin: true,
+						//headers: {'X-Requested-With': 'XMLHttpRequest'},
 						success: function(response){
 							$.each($.parseJSON(response), function(key, value){
 								console.log('value', value);
