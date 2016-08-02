@@ -111,13 +111,13 @@
 				});
 				$.ajax({
 						method: 'GET',
-						url: '/client/request/index/' + id,
+						url: '/dashsupport/client/request/index/' + id,
 						//data: {'id' : id},
 						crossOrigin: true,
 						//headers: {'X-Requested-With': 'XMLHttpRequest'},
 						success: function(response){
 							$.each($.parseJSON(response), function(key, value){
-								console.log('value', value);
+								//console.log('value', value);
 								if(value.id == id) {
 									$("#rate").val(value.rate);
 									$('#select-department').find('option:selected').prop('selected',false);
@@ -134,7 +134,42 @@
 			})
 
 		}
+		
+		if($('#service_item_id, #update-request-form .update-select-service').length > 0) {
+			$('#service_item_id, #update-request-form .update-select-service').on('change', function(){
+				var id = $(this).val();
+				$.ajaxSetup({
+				  headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+				  }
+				});
+				$.ajax({
+						method: 'GET',
+						url: '/dashsupport/client/request/index/' + id,
+						//data: {'id' : id},
+						crossOrigin: true,
+						//headers: {'X-Requested-With': 'XMLHttpRequest'},
+						success: function(response){
+							$.each($.parseJSON(response), function(key, value){
+								//console.log('value', value);
+								if(value.id == id) {
+									$("#rate, #update-request-form .update-rate-field").val(value.rate);
+									$('#select-department, #update-request-form .update-department-field').find('option:selected').prop('selected',false);
+									$('#select-department, #update-request-form .update-department-field').find('option[value="'+ value.dept_id +'"]').prop('selected',true);
+								}
+							})
+						},
+						error: function(jqXHR, textStatus, errorThrown) {
+							console.log(JSON.stringify(jqXHR));
+							console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+					}
+				});
 
+			})
+
+		}
+		
+		
 		
 		if($('.desc-field').length > 0) {
 			$('.desc-field').summernote({

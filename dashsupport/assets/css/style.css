@@ -945,9 +945,6 @@ table.dataTable thead .sorting_desc:after {
 	margin-bottom: 0;
 }
 
-
-
-
 #canvas_dahs {
 	clear: both;
 }
@@ -4704,4 +4701,10 @@ ul.notifications {
 
 .no-data-found {
 	text-align: center;
+}
+
+#client-request-table > tbody > tr.cancelled.alert-danger.odd {
+	color: #E9EDEF;
+    background-color: rgba(231, 76, 60, 0.88);
+    border-color: rgba(231, 76, 60, 0.88);
 }

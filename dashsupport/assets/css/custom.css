@@ -1,148 +1,6 @@
-@font-face {
-    font-family: 'open_sansbold';
-    src: url('/assets/fonts/opensans-bold-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'open_sansbold_italic';
-    src: url('/assets/fonts/opensans-bolditalic-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-bolditalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'open_sansextrabold';
-    src: url('/assets/fonts/opensans-extrabold-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-extrabold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'open_sansextrabold_italic';
-    src: url('/assets/fonts/opensans-extrabolditalic-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-extrabolditalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'open_sansitalic';
-    src: url('/assets/fonts/opensans-italic-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-@font-face {
-    font-family: 'open_sanslight';
-    src: url('/assets/fonts/opensans-light-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-@font-face {
-    font-family: 'open_sanslight_italic';
-    src: url('/assets/fonts/opensans-lightitalic-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-lightitalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-@font-face {
-    font-family: 'open_sansregular';
-    src: url('/assets/fonts/opensans-regular-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'open_sanssemibold';
-    src: url('/assets/fonts/opensans-semibold-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-semibold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'open_sanssemibold_italic';
-    src: url('/assets/fonts/opensans-semibolditalic-webfont.woff2') format('woff2'),
-         url('/assets/fonts/opensans-semibolditalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-body {
-	background: #F7F7F7;
-	font-family: 'open_sansregular', sans-serif, Arial;
-	font-size: 14px;
-}
-h1, h2, h3, h4, h5, h6 {
-	margin-top: 0;
-}
-h3 {
-	margin-bottom: 16px;
-}
-a {
-	cursor: pointer;
-	text-decoration: none;
-	-webkit-transition: all .1s ease-in-out;
-	transition: all .1s ease-in-out;
-}
-a:hover {
-	text-decoration: underline;
-}
-ul {
-	padding-left: 0;
-}
-ul li {
-	list-style: none;
-}
-textarea {
-	resize: none;
-	overflow-y: auto;
-}
-.clearfix:before,
-.clearfix:after {
-	content: " "; /* 1 */
-	display: table; /* 2 */
-}
-
-.clearfix:after { clear: both; }
-
-/*
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-
-.clearfix { *zoom: 1; }
-table tr th,
-table tr td {
-	text-align: center;
-	vertical-align: middle !important;
-}
+@charset "UTF-8";
 .left_col {
-  background: #2A3F54; 
-}
+  background: #2A3F54; }
 
 .nav-sm .container.body .col-md-3.left_col {
   width: 70px;
@@ -162,7 +20,7 @@ table tr td {
   visibility: hidden; }
 
 .nav-sm .container.body .right_col {
-  padding: 84px 20px;
+  padding: 10px 20px;
   margin-left: 70px;
   z-index: 2; }
 
@@ -177,175 +35,9 @@ table tr td {
   margin: 13px 0 0 3px; }
 
 .site_title i {
+  border: 1px solid #EAEAEA;
   padding: 5px 6px;
-}
-.ui-helper-hidden-accessible {
-	display: none !important;
-}
-/* DatePicker Container */
-#due_date {
-	position: relative;
-}
-.ui-datepicker {
-	width: 216px;
-	height: auto;
-	margin: 5px auto 0;
-	font: 9pt Arial, sans-serif;
-	-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-	-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
-}
-.ui-datepicker-month {
-	background: none;
-	border: none;
-}
-.ui-datepicker-month option {
-	color: #000;
-}
-.ui-datepicker a {
-	text-decoration: none;
-}
-/* DatePicker Table */
-.ui-datepicker table {
-	width: 100%;
-	background: #f4f4f4;
-}
-
-.ui-datepicker-header {
-	background: #000;
-	color: #e0e0e0;
-	font-weight: bold;
-	-webkit-box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, 2);
-	-moz-box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, .2);
-	box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, .2);
-	text-shadow: 1px -1px 0px #000;
-	filter: dropshadow(color=#000, offx=1, offy=-1);
-	line-height: 30px;
-	border-width: 1px 0 0 0;
-	border-style: solid;
-	border-color: #111;
-}
-.ui-datepicker-title {
-	text-align: center;
-}
-.ui-datepicker-prev, .ui-datepicker-next {
-	display: inline-block;
-	width: 30px;
-	height: 30px;
-	text-align: center;
-	cursor: pointer;
-	background-image: url('../images/arrow.png');
-	background-repeat: no-repeat;
-	line-height: 600%;
-	overflow: hidden;
-}
-.ui-datepicker-prev {
-	float: left;
-	background-position: center -30px;
-}
-.ui-datepicker-next {
-	float: right;
-	background-position: center 0px;
-}
-.ui-datepicker thead {
-	background-color: #f7f7f7;
-	background-image: -moz-linear-gradient(top,  #f7f7f7 0%, #f1f1f1 100%);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#f1f1f1));
-	background-image: -webkit-linear-gradient(top,  #f7f7f7 0%,#f1f1f1 100%);
-	background-image: -o-linear-gradient(top,  #f7f7f7 0%,#f1f1f1 100%);
-	background-image: -ms-linear-gradient(top,  #f7f7f7 0%,#f1f1f1 100%);
-	background-image: linear-gradient(top,  #f7f7f7 0%,#f1f1f1 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f1f1f1',GradientType=0 );
-	border-bottom: 1px solid #bbb;
-}
-.ui-datepicker th {
-	text-transform: uppercase;
-	font-size: 6pt;
-	padding: 5px 0;
-	color: #666666;
-	text-shadow: 1px 0px 0px #fff;
-	filter: dropshadow(color=#fff, offx=1, offy=0);
-}
-.ui-datepicker tbody td {
-	padding: 0;
-	border-right: 1px solid #bbb;
-}
-.ui-datepicker tbody td:last-child {
-	border-right: 0px;
-}
-.ui-datepicker tbody tr {
-	border-bottom: 1px solid #bbb;
-}
-.ui-datepicker tbody tr:last-child {
-	border-bottom: 0px;
-}
-.ui-datepicker td span, .ui-datepicker td a {
-	display: inline-block;
-	font-weight: bold;
-	text-align: center;
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-	color: #666666;
-	text-shadow: 1px 1px 0px #fff;
-	filter: dropshadow(color=#fff, offx=1, offy=1);
-}
-.ui-datepicker-calendar .ui-state-default {
-	background: #ededed;
-	background: -moz-linear-gradient(top,  #ededed 0%, #dedede 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ededed), color-stop(100%,#dedede));
-	background: -webkit-linear-gradient(top,  #ededed 0%,#dedede 100%);
-	background: -o-linear-gradient(top,  #ededed 0%,#dedede 100%);
-	background: -ms-linear-gradient(top,  #ededed 0%,#dedede 100%);
-	background: linear-gradient(top,  #ededed 0%,#dedede 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#dedede',GradientType=0 );
-	-webkit-box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
-	-moz-box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
-	box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
-}
-.ui-datepicker-calendar .ui-state-hover {
-	background: #1ABB9C;
-	color: #fff;
-	text-shadow: none;
-}
-.ui-datepicker-calendar .ui-state-active {
-	background: #1ABB9C;
-	color: #fff;
-	position: relative;
-	margin: -1px;
-	text-shadow: none;
-}
-.ui-datepicker-unselectable .ui-state-default {
-	background: #f4f4f4;
-	color: #b4b3b3;
-}
-.ui-datepicker-calendar td:first-child .ui-state-active {
-	width: 29px;
-	margin-left: 0;
-}
-.ui-datepicker-calendar td:last-child .ui-state-active {
-	width: 29px;
-	margin-right: 0;
-}
-.ui-datepicker-calendar tr:last-child .ui-state-active {
-	height: 29px;
-	margin-bottom: 0;
-}
-.profile_info h2 {
-	margin-bottom: 5px !important;
-}
-.online-ico {
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: #4CAF50;
-	display: inline-block
-}
-.profile_info .online-text {
-	color: #1e94ca;
-	margin-left: 5px;
-}
-
+  border-radius: 50%; }
 
 .nav-sm .main_container .top_nav {
   display: block;
@@ -484,24 +176,16 @@ table tr td {
   display: inline-block; }
 
 .nav_menu {
-	float: left;
-	background: #fff;
-	/*box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.1), 0px 1px 1px 0px rgba(0,0,0,0.2);*/
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 1px 6px rgba(0,0,0,0.23);
-	border-bottom: 1px solid #D9DEE4;
-	margin-bottom: 10px;
-	width: 100%;
-	position: relative; 
-}
-.right-content {
-	background: #F7F7F7;
-	padding: 10px 20px 0;
-    margin-left: 230px;
-}
+  float: left;
+  background: #EDEDED;
+  border-bottom: 1px solid #D9DEE4;
+  margin-bottom: 10px;
+  width: 100%;
+  position: relative; }
+
 @media (min-width: 480px) {
   .nav_menu {
-    position: static; } 
-}
+    position: static; } }
 .nav-md .container.body .col-md-3.left_col {
   width: 230px;
   padding: 0;
@@ -514,16 +198,16 @@ table tr td {
   position: fixed; }
 
 body .container.body .right_col {
-  background: #eceef2; }
+  background: #F7F7F7; }
 
 .nav-md .container.body .right_col {
-  padding: 84px 20px 0;
+  padding: 10px 20px 0;
   margin-left: 230px; }
 
 .nav_title {
   width: 230px;
   float: left;
-  background: #00bfe8;
+  background: #2A3F54;
   border-radius: 0;
   height: 57px; }
 
@@ -746,6 +430,9 @@ a {
 a, a:visited, a:focus, a:active, :visited, :focus, :active, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
   outline: 0; }
 
+a:hover, a:focus {
+  text-decoration: none; }
+
 .navbar {
   margin-bottom: 0; }
 
@@ -765,211 +452,6 @@ a, a:visited, a:focus, a:active, :visited, :focus, :active, .btn:focus, .btn:act
   float: right;
   position: static; }
 
-.dataTables_wrapper .btn {
-	padding: 2px 8px;
-	font-size: 12px;
-	margin: 0;
-}
-table.dataTable th {
-	position: relative;
-}
-table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting, 
-table.dataTable thead .sorting_desc {
-	background: none;
-}
-table.dataTable thead tr th {
-	border-top: 1px solid #ddd !important;
-}
-table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:after {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    display: block;
-    font-family: 'Glyphicons Halflings';
-    opacity: 0.5;
-}
-table.dataTable thead .sorting:after {
-	opacity: 0.2;
-	content: "\e150";
-}
-table.dataTable thead .sorting_asc:after {
-    content: "\e155";
-}
-table.dataTable thead .sorting_desc:after {
-	content: "\e156";
-}
-.dataTables_wrapper label {
-	font-weight: normal;
-	color: #73879C;
-}
-.dataTables_wrapper table {
-	margin-top: 10px;
-	border: none !important;
-}
-.dataTables_wrapper input[type="search"] {
-	display: inline-block;
-	width: auto;
-	margin-left: 0.5em;
-}
-.dataTables_wrapper select {
-	padding: 5px 10px;
-	font-size: 12px;
-	width: 75px;
-	display: inline-block;
-	vertical-align: middle;
-}
-.option-wrapper li {
-	float: left;
-	width: 70px;
-}
-.count-wrapper-main {
-	margin-bottom: 20px;
-}
-.count-wrapper-main a {
-	display: block
-}
-.nav-sm .box-shadow {
-	width: 232px;
-}
-.box-shadow {
-	background: #fff;
-	box-shadow: 0 4px 4px rgba(0,0,0,0.16), 0 0px 3px rgba(0,0,0,0.23);
-	text-align: center;
-	padding: 0;
-	width: 200px;
-}
-.users_count,
-.due_count,
-.services_count,
-.support_count {
-	margin-right: 19px;
-}
-/*.users_count:after {
-	content: "";
-	position: absolute;
-	left: auto;
-	right: 0;
-	top: 0;
-	height: 65px;
-	border-right: 2px solid #ADB2B5;
-	margin-top: 10px;
-}*/
-.box-shadow .icon-wrapper {
-	float: left;
-	width: 70px;
-	line-height: 91px;
-}
-.users_count .icon-wrapper {
-	background: #ff8761;
-}
-.due_count .icon-wrapper {
-	background: #FFA726;
-}
-.services_count .icon-wrapper {
-	background: #ffc400;
-}
-.request_count .icon-wrapper {
-	background: #b198dc;
-}
-.support_count .icon-wrapper {
-	background: #6dc7be;
-}
-.closed_count .icon-wrapper {
-	background: #b198dc;
-}
-.box-shadow .icon-wrapper .fa {
-	color: #fff;
-	line-height: 91px;
-	font-size: 35px;
-}
-.box-shadow .count-details {
-	float: left;
-	width: 130px;
-	padding: 19px 10px;
-}
-.box-shadow .count_top {
-	text-transform: uppercase;
-}
-.box-shadow .count_top,
-.box-shadow .count_bottom {
-	font-size: 12px;
-	color: #57bdde;
-}
-.due_count .count_top {
-	color: #FFA726;
-}
-.users_count .count_top {
-	color: #ff8761;
-}
-.services_count .count_top {
-	color: #ffc400;
-}
-.request_count .count_top {
-	color: #b198dc;
-}
-.support_count .count_top {
-	color: #6dc7be;
-}
-.closed_count .count_top {
-	color: #b198dc;
-}
-.box-shadow .count {
-	font-size: 40px;
-	font-weight: 600;
-	line-height: 40px;
-}
-.count_top i {
-	margin-right: 5px;
-}
-#support-table tbody tr.urgent.alert-danger {
-	background: rgba(231, 76, 60, 0.88);
-	border: none;
-}
-#support-table tbody tr td a {
-	color: #fff;
-}
-#support-table tbody tr.high.alert-danger {
-	background: rgba(231, 76, 60, 0.88);
-}
-#support-table tbody tr.medium.alert-warning {
-	background: #f0ad4e;
-}
-#support-table tbody tr.low.alert-info {
-	background: #5bc0de;
-}
-#cancel-status label {
-	display: block;
-}
-#description .note-editor {
-	margin-bottom: 0;
-}
-
-
-
-
-#canvas_dahs {
-	clear: both;
-}
-.legend-wrapper {
-	float: right;
-	padding-right: 20px;
-}
-.legend-request,
-.legend-support {
-	width: 10px;
-	height: 10px;
-	display: inline-block;
-}
-.legend-request {
-	background: rgba(3, 88, 106, 0.38);
-}
-.legend-support {
-	background: rgba(38, 185, 154, 0.38);
-}
-.legend-wrapper .legend-label {
-	margin-right: 10px;
-}
 @media (min-width: 480px) {
   .top_nav .navbar-right li {
     position: relative; } }
@@ -1135,12 +617,11 @@ table.dataTable thead .sorting_desc:after {
 .toggle {
   float: left;
   margin: 0;
-  padding-top: 10px;
-	padding-bottom: 10px;
+  padding-top: 16px;
   width: 70px; }
 
 .toggle a {
-  padding: 15px 22px 0;
+  padding: 15px 15px 0;
   margin: 0;
   cursor: pointer; }
 
@@ -1343,7 +824,7 @@ h2 {
 
 .x_title h2 {
   margin: 5px 0 6px;
-  /*float: left;*/
+  float: left;
   display: block;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -4645,63 +4126,3 @@ ul.notifications {
   border: 1px solid #e5e5e5; }
 
 /** /Dropzone.js **/
-
-
-/*Icheck*/
-/* iCheck plugin Flat skin, green
------------------------------------ */
-.icheckbox_flat-green,
-.iradio_flat-green {
-    display: inline-block;
-    *display: inline;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    background: url(../images/sprite.png) no-repeat;
-    border: none;
-    cursor: pointer;
-}
-
-.icheckbox_flat-green {
-    background-position: 0 0;
-}
-.icheckbox_flat-green.checked {
-	background-position: -22px 0;
-}
-.icheckbox_flat-green.disabled {
-	background-position: -44px 0;
-	cursor: default;
-}
-.icheckbox_flat-green.checked.disabled {
-	background-position: -66px 0;
-}
-
-.iradio_flat-green {
-    background-position: -88px 0;
-}
-.iradio_flat-green.checked {
-	background-position: -110px 0;
-}
-.iradio_flat-green.disabled {
-	background-position: -132px 0;
-	cursor: default;
-}
-.iradio_flat-green.checked.disabled {
-	background-position: -154px 0;
-}
-
-/* HiDPI support */
-@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
-    .icheckbox_flat-green,
-    .iradio_flat-green {
-        background-image: url(green@2x.png);
-        -webkit-background-size: 176px 22px;
-        background-size: 176px 22px;
-    }
-}
-
-.no-data-found {
-	text-align: center;
-}

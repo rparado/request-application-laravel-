@@ -11,7 +11,7 @@
 			</button></div>
 			@endif
 			
-			{!! Form::model($request, ['route' => ['client.request.update', $request->id], 'method' => 'PATCH', 'class' => 'clientrequestform-update row']) !!}
+			{!! Form::model($request, ['route' => ['client.request.update', $request->id], 'method' => 'PATCH', 'class' => 'clientrequestform-update row', 'id' => 'update-request-form']) !!}
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('request no', 'Request Number') !!}
 					{!! Form::text('request_no',null, array('class' => 'form-control', 'readonly')) !!}
@@ -27,11 +27,11 @@
 				</div>
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('service_item_id', 'Service Requested') !!}
-					{!! Form::select('service_item_id', $service_item, null, array('class' => 'form-control')) !!}	
+					{!! Form::select('service_item_id', $service_item, null, array('class' => 'form-control update-select-service')) !!}	
 				</div>
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('rate', 'Rate') !!}
-					{!! Form::text('rate',null, array('class' => 'form-control')) !!}
+					{!! Form::text('rate',null, array('class' => 'form-control update-rate-field')) !!}
 				</div>
 				<div class="form-group col-xs-12 col-md-6">
 					{!! Form::Label('priority', 'Priority') !!}
@@ -49,7 +49,16 @@
 				</div>
 				<div class="form-group col-xs-12 col-md-6" id="departmentList">
 					{!! Form::Label('department', 'Department') !!}
-					{!! Form::select('dept_id',$department, null, array('class' => 'form-control')) !!}
+					{!! Form::select('dept_id',$department, null, array('class' => 'form-control update-department-field')) !!}
+				</div>
+				<div class="form-group col-xs-12 col-md-6">
+					{!! Form::Label('status', 'Status') !!}
+					{{ Form::select('status', [
+				   		'' => '',
+					   'Cancelled' => 'Cancelled',
+					   'Resolved' => 'Resolved'
+					   ], null, array('class' => 'form-control')) 
+					}}
 				</div>
 				<div class="form-group col-xs-12" id="description">
 					{!! Form::Label('description', 'Description') !!}

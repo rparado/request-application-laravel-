@@ -33,7 +33,7 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <img src="/assets/images/user.png" alt="">Hello {{ ucfirst(Auth::user()->first_name)  }} <span class="caret"></span>
+                                <img src="../images/user.png" alt="">Hello {{ ucfirst(Auth::user()->first_name)  }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">

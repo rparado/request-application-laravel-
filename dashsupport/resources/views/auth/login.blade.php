@@ -21,7 +21,6 @@
 					</div>
 					@endif
                    {!! Form::open(['url' => 'login', 'method' => 'post', 'class' => 'loginform row']) !!}
-                   		
                    		<div class="col-xs-12 form-group">
                    			{!! Form::label('company_email', 'Email') !!}
                    			{!! Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Enter email add')) !!}

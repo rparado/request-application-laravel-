@@ -30,9 +30,18 @@
 					</thead>
 					<tbody>
 						@foreach($requests as $request)
-							
-							<tr>
-								<td><a href="{{route('client.request.edit', $request->id)}}">{{$request->request_no}}</a></td>
+							<?php
+								$class = '';
+								if($request->status == 'Cancelled' || $request->status == 'cancelled') $class = 'cancelled alert-danger';
+							?>
+							<tr class="<?php echo $class; ?>">
+								<td>
+									@if($request->status == 'Submitted')
+										<a href="{{route('client.request.edit', $request->id)}}">{{$request->request_no}}</a>
+									@else
+										{{$request->request_no}}
+									@endif
+								</td>
 								<td>{{$request->date_requested}}</td>
 								<td>{{$request->due_date}}</td>
 								<td>{{$request->dept_name}}</td>

@@ -36,6 +36,7 @@ class RequestController extends Controller
 			->join('tbl_service_item', 'tbl_request.service_item_id', '=', 'tbl_service_item.id')
 			->select('tbl_request.*', 'tbl_department.dept_name', 'tbl_service_item.service_item_name')
 			->where('tbl_request.user_id',$id)
+			->orderBy('request_no', 'ASC')
             ->get();
 		
 			return \View::make('client/request/requestlist', compact('requests'));
@@ -158,6 +159,7 @@ class RequestController extends Controller
 						->get();
 				foreach($users as $user) {
 					 Mail::send('client.emails.mail', ['user' => $user], function ($message) use ($user) {
+						 //dd($message);
 						$message->to($user->email)->subject('Request Created');
 					});
 				}
@@ -184,6 +186,24 @@ class RequestController extends Controller
 		$request = ClientRequest::find($id);
 		$request->update($request_update);
 		Session::flash('update_message', 'Request has been successfully update.');
+		
+		$user_id = Auth::user()->id;
+		//$user = User::find($user_id)->toArray();
+
+		$request_number = $request->request_no;
+
+
+		$update_users = DB::table('users')
+				->join('tbl_request', 'users.id', '=', 'tbl_request.user_id')
+				->select('users.first_name', 'users.last_name', 'users.email','tbl_request.request_no', 'tbl_request.status')
+				->where('users.id', $user_id)
+				->get();
+		foreach($update_users as $update_user) {
+					 Mail::send('client.emails.statusmail', ['update_user' => $update_user], function ($message) use ($update_user) {
+						 //dd($message);
+						$message->to($update_user->email)->subject('Request Status');
+					});
+				}
 		return redirect()->back();
 	}
 	public function destroy($id)
